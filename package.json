@@ -1,0 +1,8 @@
+{
+    "name": "rn-mobile-factory-boilerplate",
+    "version": "0.0.1",
+    "description": "React Native Template",
+    "repository": "git@github.com:sqli/rn-mobile-factory-boilerplate.git",
+    "author": "Mobile Factory <ktersigni@sqli.com>",
+    "license": "MIT"
+  }

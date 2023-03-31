@@ -1,0 +1,95 @@
+stages: 
+  - 👮lint
+  - 👷build
+  - 🚀deploy
+
+
+################################################################
+# 0) LINT                                                      #
+################################################################
+eslint:analyze:
+  stage: 👮lint
+  before_script:
+    - nvm install
+    - nvm use
+    - yarn install
+  script:
+    - yarn lint
+  tags:
+    - React-Native
+  allow_failure: false
+  only:
+    - merge_requests
+
+
+################################################################
+# 1) BUILD                                                     #
+################################################################
+build:android:
+  stage: 👷build
+  before_script:
+    - nvm install
+    - nvm use
+    - yarn install
+    - jabba use
+    - cd ci/fastlane && bundle install
+  script:
+    - bundle exec fastlane android build
+  tags: 
+    - React-Native
+  allow_failure: true
+  artifacts: 
+    paths: 
+      - android/app/build/outputs/bundle
+      - android/app/build/outputs/apk
+    expire_in: 2 weeks
+  only: 
+    - develop
+
+build:ios:
+  stage: 👷build
+  before_script:
+    - nvm install
+    - nvm use
+    - npm install
+    - cd ci/fastlane && bundle install
+    - bundle exec "cd ../../ios && pod install --repo-update"
+  script:
+    - bundle exec fastlane ios build
+  tags:
+    - Xcode14
+  allow_failure: true
+  artifacts:
+    paths:
+      - ios/build/ipa/
+    expire_in: 2 weeks
+  only: 
+    - develop
+
+################################################################
+# 2) DEPLOY                                                    #
+################################################################
+
+deploy:ios:
+  stage: 🚀deploy
+  before_script:
+    - cd ci/
+    - bundle install
+  script:
+    - bundle exec fastlane ios deploy_to_store
+  tags:
+    - React-Native
+  only:
+    - develop
+
+deploy:android:
+  stage: 🚀deploy
+  before_script:
+    - cd ci/
+    - bundle install
+  script:
+    - bundle exec fastlane android deploy_to_store
+  tags:
+    - React-Native
+  only:
+    - develop

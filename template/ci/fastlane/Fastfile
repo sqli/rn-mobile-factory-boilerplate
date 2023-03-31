@@ -1,0 +1,130 @@
+fastlane_require 'dotenv'
+
+before_all do
+  ENV["RCT_NO_LAUNCH_PACKAGER"] = "true"
+
+  #load global environment
+  Dotenv.overload '.env.global'
+end
+
+platform :ios do
+    desc "Build IPA"
+    lane :build do
+        # Increment version & build number
+        version_number = JSON.parse(open("../../package.json").read)["version"]
+        build_number = Time.now.strftime("%y%m%d%H%M")
+
+        puts "Increment main target build number and version in plist" 
+        increment_version_number_in_plist(
+            target: "boilerplate",
+            version_number: version_number,
+            xcodeproj: "../ios/boilerplate.xcodeproj"
+        )
+
+        increment_build_number_in_plist(
+            target: "boilerplate",
+            build_number: build_number,
+            xcodeproj: "../ios/boilerplate.xcodeproj"
+        )
+
+        puts "Import certificate"
+        import_certificate(
+            certificate_path: ENV["CERTIFICATE_PATH"],
+            certificate_password: ENV["CERTIFICATE_IOS"],
+            keychain_name: ENV["KEYCHAIN_LOGIN"],
+            keychain_password: ENV["KEYCHAIN"]
+        )
+
+        puts "Sigh"
+        sigh(
+            app_identifier: ENV["APP_ID"],
+            username: ENV["EMAIL_ITUNESCONNECT"],
+            team_id: ENV["TEAM_ID_APPLE"],
+            provisioning_name: ENV["PROVISIONING_NAME"],
+            readonly: true
+        )
+
+        puts "Update Project provisioning"
+        update_project_provisioning(
+            xcodeproj: ENV["XCODEPROJ_PATH"],
+            build_configuration: ENV["CONFIGURATION"],
+            code_signing_identity: ENV["CODE_SIGNING_IDENTITY"],
+            target_filter: ENV["TARGET"]
+        )
+
+        puts "🧹 Clear Derived Data 🧹"
+        clear_derived_data(derived_data_path: "DerivedData/")
+
+        puts "Build"
+        gym(
+        clean: true,
+        scheme: ENV["SCHEME"],
+        output_directory: ENV["IPA_OUTPUT_DIRECTORY"],
+        output_name: ENV["IPA_NAME"],
+        codesigning_identity: ENV["CODE_SIGNING_IDENTITY"],
+        workspace: ENV["WORKSPACE_PATH"],
+        export_method: ENV["EXPORT_METHOD"],
+        configuration: ENV["CONFIGURATION"]
+        )
+
+    end
+
+    desc "🔥 - Upload On AppCenter - 🔥"
+    lane :deploy_to_store do
+        puts "🚀 Deploy on App Center 🚀"
+        appcenter_upload(
+            api_token: ENV["APP_CENTER_USER_TOKEN"],
+            owner_name: ENV["APP_CENTER_OWNER_NAME"],
+            owner_type: ENV["APP_CENTER_OWNER_TYPE"],
+            app_name: ENV["APP_CENTER_IOS_APP_NAME"],
+            file: "#{ENV["IPA_OUTPUT_DIRECTORY"]}#{ENV["IPA_NAME"]}.ipa",
+            notify_testers: false,
+            destinations: ENV["APP_CENTER_DESTINATION"]
+        )
+    end
+end
+
+
+
+platform :android do
+    desc "Build app & packaging apk"
+    lane :build do
+        # Increment version & build number
+        version_number = JSON.parse(open("../../package.json").read)["version"]
+        year = Time.now.strftime("%y")
+        year[0] = ''
+        dateTime = Time.now.strftime("%j%H%M")
+        build_number = 2020000000 + (year.to_i - 1) * 10000000 + dateTime.to_i
+        gradle(
+            task: "clean",
+            gradle_path: "../android/gradlew",
+            project_dir: "../android"
+        )
+
+        gradle(
+            task: "assemble",
+            build_type: "release",
+            properties: {
+              "versionCode" => build_number,
+              "versionName" => version_number,
+              "keystore_password" => ENV["KEYSTORE_PASSWORD"]
+            },
+            gradle_path: "../android/gradlew",
+            project_dir: "../android"
+        )
+    end
+
+    desc "🔥 - Upload On AppCenter - 🔥"
+    lane :deploy_to_store do
+        puts "🚀 Deploy on App Center 🚀"
+        appcenter_upload(
+            api_token: ENV["APP_CENTER_USER_TOKEN"],
+            owner_name: ENV["APP_CENTER_OWNER_NAME"],
+            owner_type: ENV["APP_CENTER_OWNER_TYPE"],
+            app_name: ENV["APP_CENTER_ANDROID_APP_NAME"],
+            file: ENV["APK_PATH"],
+            notify_testers: false,
+            destinations: ENV["APP_CENTER_DESTINATION"]
+        )
+    end
+end

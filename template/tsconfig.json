@@ -1,0 +1,61 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "commonjs",
+    "lib": ["es2021"],
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": false,
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@enums/*": [
+        "./src/enums/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@models/*": [
+        "./src/models/*"
+      ],
+      "@navigators/*": [
+        "./src/navigators/*"
+      ],
+      "@redux/*": [
+        "./src/redux/*"
+      ],
+      "@screens/*": [
+        "./src/screens/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@theme/*": [
+        "./src/theme/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ]
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ],
+}
