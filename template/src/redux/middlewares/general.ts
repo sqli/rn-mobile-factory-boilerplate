@@ -1,6 +1,6 @@
 import { fetchRemoteConfigValues, initApp } from '@redux/reducers/general';
 import { AppDispatch, AppMiddleware } from '@redux/store';
-import { checkRemoteConfigVersion, firebaseInit } from '@services/firebaseInit';
+import { checkRemoteConfigVersion } from '@services/firebaseInit';
 
 export const generalMiddleware: AppMiddleware = store => next => action => {
   const dispatch: AppDispatch = store.dispatch;
@@ -9,8 +9,8 @@ export const generalMiddleware: AppMiddleware = store => next => action => {
 
   switch (action.type) {
     case initApp.type: {
-      firebaseInit();
-      dispatch(fetchRemoteConfigValues());
+      // firebaseInit();
+      // dispatch(fetchRemoteConfigValues());
       break;
     }
     case fetchRemoteConfigValues.fulfilled.type: {

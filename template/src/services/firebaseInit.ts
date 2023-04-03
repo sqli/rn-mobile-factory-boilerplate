@@ -1,6 +1,6 @@
 import analytics from '@react-native-firebase/analytics';
 import { ReactNativeFirebase } from '@react-native-firebase/app';
-import crashlytics from '@react-native-firebase/crashlytics';
+// import crashlytics from '@react-native-firebase/crashlytics';
 import messaging, { FirebaseMessagingTypes } from '@react-native-firebase/messaging';
 import perf from '@react-native-firebase/perf';
 

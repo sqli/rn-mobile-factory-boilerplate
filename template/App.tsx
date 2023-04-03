@@ -17,9 +17,9 @@ import MainNavigator from '@navigators/MainNavigator';
 import { getCurrentRoute, navigationRef } from '@navigators/navigationServices';
 import { initApp, setCurrentRoute } from '@redux/reducers/general';
 import store, { persistor } from '@redux/store';
-import crashlyticsUtils from '@utils/crashlyticsUtils';
+// import crashlyticsUtils from '@utils/crashlyticsUtils';
 
-crashlyticsUtils();
+// crashlyticsUtils();
 
 const App = () => {
   useEffect(() => {
