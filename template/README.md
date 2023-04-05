@@ -18,11 +18,13 @@ Most of the Firebase configuration is initialized in the boilerplate, but you ha
 
 Now that you have create your Firebase project and added the configuration files, you have to update the app configuration:
 
-- Add Crashlytics : `yarn add @react-native-firebase/crashlytics@14.112.0`
+- Add Crashlytics : `yarn add @react-native-firebase/crashlytics@14.12.0 @react-native-firebase/analytics@14.12.0 @react-native-firebase/app@14.12.0 @react-native-firebase/auth@14.12.0 @react-native-firebase/messaging@14.12.0 @react-native-firebase/perf@14.12.0 @react-native-firebase/remote-config@14.12.0`
 - In `AppDelegate.m` uncomment *`#import <Firebase.h>` et `[FIRApp configure];`
+- In `app/build.gradle` uncomment *`apply plugin` lines at the top of the file.
+- In `build.gradle` uncomment *`classpath` lines in dependencies.
 - In `App.tsx` uncomment `import crashlytics` et `crashlyticsUtils()`
 - In `general.ts` middleware uncomment `initApp` functions.
-- In `firebaseInit.ts` uncomment the import `crashlytics`
+- In `firebaseInit.ts` and `remoteConfigManager.ts` uncomment the imports
 
 > Firebase is now initialized with analytics, crashlytics, firestore, messaging, performance and remote-config.
 > You can now see logs of your `fcmtoken`, and reports in your Firebase console.
