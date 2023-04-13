@@ -1,5 +1,7 @@
 # SQLI React-Native Boilerplate
 
+Versions of Node (`16.15.1`), Java (`Java 11`) and Ruby (`2.7.3`) are managed with `.nvmrc`, `.jabbarc` and `.rvmrc` files so everyone could use this starter kit.
+
 ## Basic configuration
 
 There are a few things you have to change to make this template specific to your project : 

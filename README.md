@@ -5,9 +5,11 @@ This custom one is built upon the **0.69 version of RN** with **typescript**.
 
 The template is preconfigured for **Firebase** and **CI/CD** with the combo **Gitlab CI** x **Fastlane** (you may find some details in the template folder inside the `README.md` itself).
 
-##Requirement
+## Requirement
 
 You need to install and use 16 or newer version of Node.
+If you encounter an error related to Cocoapods you may need to upgrade your version of Ruby to `2.7.3`.  
+If it's not enough you may run `npx pod-install`.
 
 ## Packages (last update 02-2023)
 **React Navigation** - 6.1.4  
