@@ -11,7 +11,7 @@ const HomeScreen = () => {
       <Image
         style={styles.image}
         source={{
-          uri: '',
+          uri: 'https://avatars.githubusercontent.com/u/835963?s=200&v=4',
         }}
       />
       <Button title="Go to Details" onPress={() => navigate(navigationConstants.DETAILS)} />
