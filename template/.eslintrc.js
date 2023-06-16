@@ -24,6 +24,9 @@ module.exports = {
     sourceType: 'module',
   },
   plugins: ['react', '@typescript-eslint'],
+  globals: {
+    JSX: 'readonly',
+  },
   rules: {
     indent: ['error', 2, { SwitchCase: 1 }],
     'react-native/no-inline-styles': 'off',
