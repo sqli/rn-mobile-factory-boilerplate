@@ -14,48 +14,23 @@
     "skipLibCheck": false,
     "baseUrl": ".",
     "paths": {
-      "@assets/*": [
-        "./src/assets/*"
-      ],
-      "@components/*": [
-        "./src/components/*"
-      ],
-      "@constants/*": [
-        "./src/constants/*"
-      ],
-      "@enums/*": [
-        "./src/enums/*"
-      ],
-      "@hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@models/*": [
-        "./src/models/*"
-      ],
-      "@navigators/*": [
-        "./src/navigators/*"
-      ],
-      "@redux/*": [
-        "./src/redux/*"
-      ],
-      "@screens/*": [
-        "./src/screens/*"
-      ],
-      "@services/*": [
-        "./src/services/*"
-      ],
-      "@theme/*": [
-        "./src/theme/*"
-      ],
-      "@utils/*": [
-        "./src/utils/*"
-      ]
+      "@assets/*": ["./src/assets/*"],
+      "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@enums/*": ["./src/enums/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@models/*": ["./src/models/*"],
+      "@navigators/*": ["./src/navigators/*"],
+      "@redux/*": ["./src/redux/*"],
+      "@thunks/*": ["./src/redux/thunks/*"],
+      "@selectors/*": ["./src/redux/selectors/*"],
+      "@middlewares/*": ["./src/redux/middlewares/*"],
+      "@reducers/*": ["./src/redux/reducers/*"],
+      "@screens/*": ["./src/screens/*"],
+      "@services/*": ["./src/services/*"],
+      "@theme/*": ["./src/theme/*"],
+      "@utils/*": ["./src/utils/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js"
-  ],
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
