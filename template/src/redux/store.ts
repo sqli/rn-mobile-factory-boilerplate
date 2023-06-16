@@ -2,11 +2,11 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
-import { generalMiddleware } from './middlewares/general';
-import { userMiddleware } from './middlewares/user';
+import reactotron from '../../ReactotronConfig';
 import generalSlice from './reducers/general';
 import userSlice from './reducers/user';
-import reactotron from '../../ReactotronConfig';
+import { generalMiddleware } from './middlewares/general';
+import { userMiddleware } from './middlewares/user';
 
 const generalPersistConfig = {
   key: 'general',
