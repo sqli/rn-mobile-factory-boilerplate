@@ -13,7 +13,11 @@ const Stack = createNativeStackNavigator<rootStackParamList>();
 const MainNavigator = () => {
   return (
     <Stack.Navigator initialRouteName={navigationConstants.HOME}>
-      <Stack.Screen name={navigationConstants.HOME} component={HomeScreen} options={{ title: 'Home' }} />
+      <Stack.Screen
+        name={navigationConstants.HOME}
+        component={HomeScreen}
+        options={{ title: 'Home' }}
+      />
       <Stack.Screen
         name={navigationConstants.DETAILS}
         component={DetailsScreen}
