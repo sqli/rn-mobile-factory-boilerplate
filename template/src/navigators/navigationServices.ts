@@ -1,21 +1,25 @@
 /* eslint-disable require-jsdoc */
-import { CommonActions, createNavigationContainerRef, StackActions } from '@react-navigation/native';
+import {
+  CommonActions,
+  createNavigationContainerRef,
+  StackActions,
+} from '@react-navigation/native';
 
 import { rootStackParamList } from '@navigators/rootStackParams';
 
 export const navigationRef = createNavigationContainerRef<rootStackParamList>();
 
-export function navigate<RouteName extends keyof rootStackParamList, RouteParams extends rootStackParamList[RouteName]>(
-  name: RouteName,
-  params?: RouteParams | undefined,
-) {
+export function navigate<
+  RouteName extends keyof rootStackParamList,
+  RouteParams extends rootStackParamList[RouteName],
+>(name: RouteName, params?: RouteParams | undefined) {
   navigationRef.current?.navigate(name as keyof rootStackParamList, params);
 }
 
-export function push<RouteName extends keyof rootStackParamList, RouteParams extends rootStackParamList[RouteName]>(
-  name: RouteName,
-  params?: RouteParams | undefined,
-) {
+export function push<
+  RouteName extends keyof rootStackParamList,
+  RouteParams extends rootStackParamList[RouteName],
+>(name: RouteName, params?: RouteParams | undefined) {
   const pushAction = StackActions.push(name as keyof rootStackParamList, params);
   navigationRef.current?.dispatch(pushAction);
 }

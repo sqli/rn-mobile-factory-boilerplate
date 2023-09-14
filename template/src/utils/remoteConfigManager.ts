@@ -11,7 +11,9 @@ const remoteConfigManager = {
           if (fetchedRemotely) {
             console.info('Configs were retrieved from the backend and activated.');
           } else {
-            console.info('No configs were fetched from the backend, and the local configs were already activated');
+            console.info(
+              'No configs were fetched from the backend, and the local configs were already activated',
+            );
           }
           const parameters = remoteConfig().getAll();
           const remoteConfigValues: { [key: string]: string } = {};

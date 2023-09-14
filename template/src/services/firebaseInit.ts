@@ -41,7 +41,10 @@ export const firebaseInit = () => {
   analytics()
     .setAnalyticsCollectionEnabled(!__DEV__)
     .catch(error => {
-      console.error(`setAnalyticsCollectionEnabled error: ${JSON.stringify(error)}`, 'setAnalyticsCollectionEnabled');
+      console.error(
+        `setAnalyticsCollectionEnabled error: ${JSON.stringify(error)}`,
+        'setAnalyticsCollectionEnabled',
+      );
     });
   crashlytics()
     .setCrashlyticsCollectionEnabled(!__DEV__)
@@ -77,7 +80,10 @@ export const firebaseInit = () => {
           console.log('🐣 fcmToken', fcmToken);
         })
         .catch(error => {
-          console.error(`setMessagingCollectionEnabled error: ${error}`, 'setMessagingCollectionEnabled');
+          console.error(
+            `setMessagingCollectionEnabled error: ${error}`,
+            'setMessagingCollectionEnabled',
+          );
         });
       // timeout so when first opening the app, api is not called twice (token didn't exist before)
       setTimeout(() => {
