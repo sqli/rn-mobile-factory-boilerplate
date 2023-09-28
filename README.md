@@ -24,7 +24,7 @@ React Native **Async storage** - 1.17.11
 
 Run this command in your favorite terminal :
 
-`npx react-native@0.69.7 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
+`npx react-native@0.72.5 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
 
 Install the packages with the `yarn` command and then you could run your app with these two :  
 - `yarn start` to start the metro bundler ;  
