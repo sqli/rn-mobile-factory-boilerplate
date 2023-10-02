@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # You may use http://rbenv.org/ or https://rvm.io/ to install and use this version
 ruby '2.7.3'
 
-gem 'cocoapods', '~> 1.12.1'
+gem 'cocoapods', '~> 1.13.0'
 gem 'fastlane', '~> 2.212.2'
 gem 'dotenv', '~> 2.8.1'
 gem 'xcode-install', "~> 2.8.1"
