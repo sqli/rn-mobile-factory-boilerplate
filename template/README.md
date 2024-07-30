@@ -5,8 +5,7 @@ Versions of Node (`16.15.1`), Java (`Java 11`) and Ruby (`2.7.3`) are managed wi
 ## Basic configuration
 
 There are a few things you have to change to make this template specific to your project : 
-- Do a search and replace on all `com.sqli.boilerplate` to `com.company.appname` specific to your project (bundleId)
-- Do a search and replace on all `boilerplate` to `appname` specific to your project.
+- Do a search and replace on all `com.sqli.appname` to `com.company.appname` specific to your project (bundleId)
 
 ## Firebase configuration
 
