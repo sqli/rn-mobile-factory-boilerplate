@@ -12,23 +12,25 @@ If you encounter an error related to Cocoapods you may need to upgrade your vers
 If it's not enough you may run `npx pod-install`.
 
 ## Packages (last update 02-2023)
+
 **React Navigation** - 6.1.4  
 **Redux** - 8.0.5  
-**Redux ToolKit** - 1.9.3   
-**Redux Persist** - 6.0.0   
+**Redux ToolKit** - 1.9.3  
+**Redux Persist** - 6.0.0  
 React Native **Async storage** - 1.17.11  
-**Reactotron** with Redux config - 3.1.3  
-
+**Reactotron** with Redux config - 3.1.3
 
 ## Quick start
 
 Run this command in your favorite terminal :
 
-`npx react-native@0.72.5 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
+`npx react-native@0.74.5 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
 
-Install the packages with the `yarn` command and then you could run your app with these two :  
-- `yarn start` to start the metro bundler ;  
-- `yarn ios` or `yarn android` to run the chosen platform application.
+Install the packages with the `yarn` command and then you could run your app with these two :
+
+-   `yarn start` to start the metro bundler ;
+-   `yarn ios` or `yarn android` to run the chosen platform application.
 
 ## About us
+
 We are a small research and development team from the Mobile Factory division. We thought we could buy some time with contemporary starter kit so we built this one with common specs and packages used within previous projects.

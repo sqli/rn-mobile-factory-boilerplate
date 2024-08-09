@@ -20,7 +20,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 // crashlyticsUtils();
 
-const App = () => {
+const App = (): React.JSX.Element => {
   useEffect(() => {
     store.dispatch(initApp());
   }, []);
