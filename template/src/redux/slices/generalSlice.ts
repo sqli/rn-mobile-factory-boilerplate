@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import remoteConfigManager from '@utils/remoteConfigManager';
+import RemoteConfigManager from '@managers/RemoteConfigManager';
 
 interface GeneralInitialState {
   currentRoute?: string;
@@ -15,7 +15,7 @@ export const generalInitialState: GeneralInitialState = {
 };
 
 export const fetchRemoteConfigValues = createAsyncThunk('fetchRemoteConfigValues', async () => {
-  return await remoteConfigManager.getAllRemoteConfigValues();
+  return await RemoteConfigManager.getAllRemoteConfigValues();
 });
 
 const generalSlice = createSlice({
