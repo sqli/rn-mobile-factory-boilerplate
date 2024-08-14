@@ -18,7 +18,7 @@ module.exports = {
           '@redux': './src/redux',
           '@thunks': './src/redux/thunks',
           '@middlewares': './src/redux/middlewares',
-          '@reducers': './src/redux/reducers',
+          '@slices': './src/redux/slices',
           '@selectors': './src/redux/selectors',
           '@screens': './src/screens',
           '@services': './src/services',

@@ -86,7 +86,7 @@ module.exports = {
           ['@thunks', './src/redux/thunks'],
           ['@selectors', './src/redux/selectors'],
           ['@middlewares', './src/redux/middlewares'],
-          ['@reducers', './src/redux/reducers'],
+          ['@slices', './src/redux/slices'],
         ],
         extensions: ['.ts', '.tsx', '.ios.ts', '.android.ts', '.json', '.js'],
       },

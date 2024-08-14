@@ -5,22 +5,22 @@ import {
   StackActions,
 } from '@react-navigation/native';
 
-import { rootStackParamList } from '@navigators/rootStackParams';
+import { RootStackParamList } from '@models/navigators/RootStackParams';
 
-export const navigationRef = createNavigationContainerRef<rootStackParamList>();
+export const navigationRef = createNavigationContainerRef<RootStackParamList>();
 
 export function navigate<
-  RouteName extends keyof rootStackParamList,
-  RouteParams extends rootStackParamList[RouteName],
+  RouteName extends keyof RootStackParamList,
+  RouteParams extends RootStackParamList[RouteName],
 >(name: RouteName, params?: RouteParams | undefined) {
-  navigationRef.current?.navigate(name as keyof rootStackParamList, params);
+  navigationRef.current?.navigate(name as keyof RootStackParamList, params);
 }
 
 export function push<
-  RouteName extends keyof rootStackParamList,
-  RouteParams extends rootStackParamList[RouteName],
+  RouteName extends keyof RootStackParamList,
+  RouteParams extends RootStackParamList[RouteName],
 >(name: RouteName, params?: RouteParams | undefined) {
-  const pushAction = StackActions.push(name as keyof rootStackParamList, params);
+  const pushAction = StackActions.push(name as keyof RootStackParamList, params);
   navigationRef.current?.dispatch(pushAction);
 }
 

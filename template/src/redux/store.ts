@@ -3,10 +3,10 @@ import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
 import reactotron from '../../ReactotronConfig';
-import generalSlice from './reducers/general';
-import userSlice from './reducers/user';
-import { generalMiddleware } from './middlewares/general';
-import { userMiddleware } from './middlewares/user';
+import generalSlice from '@slices/generalSlice';
+import userSlice from '@slices/userSlice';
+import { generalMiddleware } from '@middlewares/generalMiddleware';
+import { userMiddleware } from '@middlewares/userMiddleware';
 
 const generalPersistConfig = {
   key: 'general',
