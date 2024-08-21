@@ -1,7 +1,9 @@
 module.exports = {
+  root: true,
   env: {
     browser: true,
     es2021: true,
+    'jest/globals': true,
   },
   extends: [
     'plugin:react/recommended',
@@ -14,6 +16,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
     '@react-native',
+    'plugin:jest/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -23,21 +26,22 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
-  plugins: ['react', '@typescript-eslint'],
+  plugins: ['react', '@typescript-eslint', 'jest'],
   globals: {
     JSX: 'readonly',
   },
   rules: {
-    indent: ['error', 2, { SwitchCase: 1 }],
     'react-native/no-inline-styles': 'off',
     'no-duplicate-imports': ['error'],
-    '@typescript-eslint/explicit-module-boundary-types': 0,
-    '@typescript-eslint/no-var-requires': 0,
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
-    'no-shadow': 0,
-    'react-native/no-unused-styles': 2,
-    'react-native/no-color-literals': 2,
-    'react-native/no-single-element-style-arrays': 2,
+    'no-shadow': 'off',
+    'react-native/no-unused-styles': 'error',
+    'react-native/no-color-literals': 'error',
+    'react-native/no-single-element-style-arrays': 'error',
+    'arrow-body-style': ['error', 'as-needed'],
+    'react/no-unstable-nested-components': 'error',
     'import/order': [
       'error',
       {
@@ -63,6 +67,14 @@ module.exports = {
       },
     ],
   },
+  overrides: [
+    {
+      files: ['src/redux/slices/*.ts'],
+      rules: {
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+  ],
   settings: {
     'import/resolver': {
       node: {
@@ -86,7 +98,7 @@ module.exports = {
           ['@thunks', './src/redux/thunks'],
           ['@selectors', './src/redux/selectors'],
           ['@middlewares', './src/redux/middlewares'],
-          ['@reducers', './src/redux/reducers'],
+          ['@slices', './src/redux/slices'],
         ],
         extensions: ['.ts', '.tsx', '.ios.ts', '.android.ts', '.json', '.js'],
       },
