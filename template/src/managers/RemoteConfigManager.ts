@@ -2,7 +2,7 @@
 
 export const remoteConfigMinVersion = 'min_version';
 
-const RemoteConfigManager = {
+const remoteConfigManager = {
   getAllRemoteConfigValues: () =>
     new Promise<{ [key: string]: string }>((res, rej) => {
       remoteConfig()
@@ -29,4 +29,4 @@ const RemoteConfigManager = {
     }),
 };
 
-export default RemoteConfigManager;
+export default remoteConfigManager;
