@@ -88,6 +88,7 @@ module.exports = {
           ['@constants', './src/constants'],
           ['@enums', './src/enums'],
           ['@hooks', './src/hooks'],
+          ['@managers', './src/managers'],
           ['@models', './src/models'],
           ['@navigators', './src/navigators'],
           ['@redux', './src/redux'],

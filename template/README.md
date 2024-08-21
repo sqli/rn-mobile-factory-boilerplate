@@ -30,7 +30,7 @@ Now that you have create your Firebase project and added the configuration files
 - In `build.gradle` uncomment \*`classpath` lines in dependencies.
 - In `App.tsx` uncomment `import crashlytics` et `crashlyticsUtils()`
 - In `general.ts` middleware uncomment `initApp` functions.
-- In `firebaseInit.ts` and `remoteConfigManager.ts` uncomment the imports
+- In `firebaseInit.ts` and `RemoteConfigManager.ts` uncomment the imports
 
 > Firebase is now initialized with analytics, crashlytics, firestore, messaging, performance and remote-config.
 > You can now see logs of your `fcmtoken`, and reports in your Firebase console.

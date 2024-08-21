@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import remoteConfigManager from '@utils/remoteConfigManager';
+import remoteConfigManager from '@managers/remoteConfigManager';
 
 interface GeneralInitialState {
   currentRoute?: string;

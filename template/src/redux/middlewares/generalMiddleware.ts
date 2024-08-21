@@ -1,4 +1,4 @@
-import { fetchRemoteConfigValues, initApp } from '@redux/reducers/general';
+import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
 import { AppDispatch, AppMiddleware } from '@redux/store';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
 

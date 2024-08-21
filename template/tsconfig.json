@@ -19,15 +19,16 @@
       "@constants/*": ["./src/constants/*"],
       "@enums/*": ["./src/enums/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@managers/*": ["./src/managers/*"],
       "@models/*": ["./src/models/*"],
       "@navigators/*": ["./src/navigators/*"],
       "@redux/*": ["./src/redux/*"],
       "@thunks/*": ["./src/redux/thunks/*"],
       "@selectors/*": ["./src/redux/selectors/*"],
       "@middlewares/*": ["./src/redux/middlewares/*"],
-      "@reducers/*": ["./src/redux/reducers/*"],
       "@screens/*": ["./src/screens/*"],
       "@services/*": ["./src/services/*"],
+      "@slices/*": ["src/redux/slices/*"],
       "@theme/*": ["./src/theme/*"],
       "@utils/*": ["./src/utils/*"]
     }

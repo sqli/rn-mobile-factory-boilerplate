@@ -1,6 +1,6 @@
 // import remoteConfig from '@react-native-firebase/remote-config';
 
-export const RemoteConfigMinVersion = 'min_version';
+export const remoteConfigMinVersion = 'min_version';
 
 const remoteConfigManager = {
   getAllRemoteConfigValues: () =>

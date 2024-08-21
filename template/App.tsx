@@ -10,9 +10,9 @@
 import React, { useEffect } from 'react';
 
 import MainNavigator from '@navigators/MainNavigator';
-import { getCurrentRoute, navigationRef } from '@navigators/navigationServices';
+import { getCurrentRoute, navigationRef } from '@services/navigationServices';
 import { NavigationContainer } from '@react-navigation/native';
-import { initApp, setCurrentRoute } from '@redux/reducers/general';
+import { initApp, setCurrentRoute } from '@redux/slices/generalSlice';
 import store, { persistor } from '@redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';

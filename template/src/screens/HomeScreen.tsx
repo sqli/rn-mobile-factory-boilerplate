@@ -2,8 +2,8 @@ import React from 'react';
 
 import { Button, Image, StyleSheet, View } from 'react-native';
 
-import navigationConstants from '@navigators/navigationConstants';
-import { navigate } from '@navigators/navigationServices';
+import { navigate } from '@services/navigationServices';
+import { NavigationEnum } from '@enums/NavigationEnum';
 
 const HomeScreen = () => {
   return (
@@ -14,7 +14,7 @@ const HomeScreen = () => {
           uri: 'https://avatars.githubusercontent.com/u/835963?s=200&v=4',
         }}
       />
-      <Button title="Go to Details" onPress={() => navigate(navigationConstants.DETAILS)} />
+      <Button title="Go to Details" onPress={() => navigate(NavigationEnum.DETAILS)} />
     </View>
   );
 };
