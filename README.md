@@ -7,7 +7,7 @@ The template is preconfigured for **Firebase** and **CI/CD** with the combo **Gi
 
 ## Requirement
 
-You need to install and use 16 or newer version of Node.
+You need to install and use 18 or newer version of Node.
 If you encounter an error related to Cocoapods you may need to upgrade your version of Ruby to `2.7.3`.  
 If it's not enough you may run `npx pod-install`.
 
@@ -26,12 +26,14 @@ Run this command in your favorite terminal :
 
 `npx react-native@0.74.5 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
 
-Install the packages with the `yarn` command and then you could run your app with these two :
+You can run your app like this :
 
 -   `nvm install` to install the correct node version
 -   `nvm use` to use the correct node version
--   `yarn start` to start the metro bundler ;
--   `yarn ios` or `yarn android` to run the chosen platform application.
+-   `yarn` to install the packages
+-   `yarn start` to start the metro bundler
+-   `yarn pods` & `yarn ios` to run on iOS
+-   `jabba use` & `yarn android` to run on Android
 
 ## About us
 
