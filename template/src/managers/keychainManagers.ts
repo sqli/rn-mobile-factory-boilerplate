@@ -1,6 +1,6 @@
 import * as Keychain from 'react-native-keychain';
 
-const KeychainManager = {
+const keychainManager = {
   getItem: (key: string) =>
     new Promise((res, rej) => {
       Keychain.getInternetCredentials(key)
@@ -39,4 +39,4 @@ const KeychainManager = {
     }),
 };
 
-export default KeychainManager;
+export default keychainManager;

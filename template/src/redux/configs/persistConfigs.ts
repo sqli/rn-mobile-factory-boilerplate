@@ -1,9 +1,9 @@
-import KeychainManager from '@managers/KeychainManager';
+import keychainManager from '@managers/keychainManager';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export const authentPersistConfig = {
   key: 'authent',
-  storage: KeychainManager,
+  storage: keychainManager,
   whitelist: ['token'],
 };
 
