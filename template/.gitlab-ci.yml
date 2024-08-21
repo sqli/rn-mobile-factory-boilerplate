@@ -1,8 +1,29 @@
-stages: 
+stages:
   - 👮lint
+  - 🛰sonar
   - 👷build
   - 🚀deploy
 
+################################################################
+# 0) SONAR                                                     #
+################################################################
+
+sonar:analyze:
+  stage: 🛰sonar
+  before_script:
+    - nvm install
+    - nvm use
+    - yarn
+    - jabba use
+    - yarn test -- --coverage
+    - ./ci/updateSonarProjectVersion.sh
+  script:
+    - sonar-scanner
+  allow_failure: true
+  tags:
+    - React-Native
+  only:
+    - develop
 
 ################################################################
 # 0) LINT                                                      #
@@ -21,7 +42,6 @@ eslint:analyze:
   only:
     - merge_requests
 
-
 ################################################################
 # 1) BUILD                                                     #
 ################################################################
@@ -35,15 +55,15 @@ build:android:
     - cd ci/fastlane && bundle install
   script:
     - bundle exec fastlane android build
-  tags: 
+  tags:
     - React-Native
   allow_failure: true
-  artifacts: 
-    paths: 
+  artifacts:
+    paths:
       - android/app/build/outputs/bundle
       - android/app/build/outputs/apk
     expire_in: 2 weeks
-  only: 
+  only:
     - develop
 
 build:ios:
@@ -63,7 +83,7 @@ build:ios:
     paths:
       - ios/build/ipa/
     expire_in: 2 weeks
-  only: 
+  only:
     - develop
 
 ################################################################

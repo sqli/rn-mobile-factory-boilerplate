@@ -11,6 +11,7 @@ There are a few things you have to change to make this template specific to your
 Replace those variables with your urls :
 
 - JIRA_URL
+- SONAR_URL
 
 ## Firebase configuration
 
