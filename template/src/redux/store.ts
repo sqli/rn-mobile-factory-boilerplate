@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
+import { combineReducers, configureStore, Middleware, Tuple } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
 import reactotron from '../../ReactotronConfig';
@@ -25,9 +25,11 @@ const rootReducer = combineReducers({
   [generalSlice.name]: persistReducer(generalPersistConfig, generalSlice.reducer),
   [userSlice.name]: persistReducer(userPersistConfig, userSlice.reducer),
 });
+
 const store = configureStore({
   reducer: rootReducer,
-  enhancers: (__DEV__ && [reactotron.createEnhancer()]) || undefined,
+  enhancers: getDefaultEnhancers =>
+    __DEV__ ? getDefaultEnhancers().concat(reactotron.createEnhancer()) : getDefaultEnhancers(),
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat(generalMiddleware, userMiddleware),
 });
