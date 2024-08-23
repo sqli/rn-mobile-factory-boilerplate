@@ -1,3 +1,5 @@
+import { NativeModules } from 'react-native';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Reactotron from 'reactotron-react-native';
 import { reactotronRedux } from 'reactotron-redux';
@@ -13,10 +15,20 @@ console.log = (...args) => {
   });
 };
 
-const reactotron = Reactotron.setAsyncStorageHandler(AsyncStorage) // AsyncStorage would either come from `react-native` or `@react-native-community/async-storage` depending on where you get it from
-  .configure({ name: 'Boilerplate' }) // controls connection & communication settings
-  .useReactNative() // add all built-in react native plugins
-  .use(reactotronRedux())
-  .connect(); // let's connect!
+let reactotron;
+
+let scriptHostname;
+if (__DEV__) {
+  const scriptURL = NativeModules.SourceCode.scriptURL;
+  scriptHostname = scriptURL.split('://')[1].split(':')[0];
+
+  reactotron =
+    Reactotron.setAsyncStorageHandler &&
+    Reactotron.setAsyncStorageHandler(AsyncStorage) // AsyncStorage would either come from `react-native` or `@react-native-community/async-storage` depending on where you get it from
+      .configure({ name: 'boilerplate', host: scriptHostname }) // controls connection & communication settings
+      .useReactNative() // add all built-in react native plugins
+      .use(reactotronRedux())
+      .connect(); // let's connect!
+}
 
 export default reactotron;
