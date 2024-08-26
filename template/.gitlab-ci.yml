@@ -1,5 +1,5 @@
 stages:
-  - 👮lint
+  - 👮quality
   - 🛰sonar
   - 👷build
   - 🚀deploy
@@ -26,21 +26,40 @@ sonar:analyze:
     - develop
 
 ################################################################
-# 0) LINT                                                      #
+# 0) QUALITY                                                   #
 ################################################################
-eslint:analyze:
-  stage: 👮lint
+
+.quality: &quality
+  stage: 👮quality
   before_script:
     - nvm install
     - nvm use
-    - yarn install
-  script:
-    - yarn lint
+    - yarn
   tags:
     - React-Native
   allow_failure: false
   only:
     - merge_requests
+
+typescript:
+  <<: *quality
+  script:
+    - yarn tsc
+
+prettier:
+  <<: *quality
+  script:
+    - yarn prettier
+
+eslint:
+  <<: *quality
+  script:
+    - yarn lint
+
+jest:
+  <<: *quality
+  script:
+    - yarn test --coverage
 
 ################################################################
 # 1) BUILD                                                     #
@@ -50,7 +69,7 @@ build:android:
   before_script:
     - nvm install
     - nvm use
-    - yarn install
+    - yarn
     - jabba use
     - cd ci/fastlane && bundle install
   script:

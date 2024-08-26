@@ -6,11 +6,13 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
+    "pods": "cd ci && bundle exec \"cd ../ios/ && pod install --repo-update\"",
     "test": "jest",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx src/",
+    "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
     "prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx,json}\"",
     "prettier:format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "pods": "cd ci && bundle exec \"cd ../ios/ && pod install --repo-update\""
+    "tsc": "npx tsc --skipLibCheck"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
@@ -58,14 +60,7 @@
   },
   "jest": {
     "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
+    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
   },
   "engines": {
     "node": ">=18"
