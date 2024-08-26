@@ -3766,6 +3766,7 @@ __metadata:
     react-redux: "npm:^8.0.5"
     react-test-renderer: "npm:18.0.0"
     reactotron-react-native: "npm:^5.0.3"
+    reactotron-redux: "npm:^3.1.3"
     redux-persist: "npm:^6.0.0"
     typescript: "npm:^4.8.4"
   languageName: unknown
@@ -8796,6 +8797,16 @@ __metadata:
     react-native-flipper:
       optional: true
   checksum: 10c0/c3b780ba094cbb04ea5f0573b09a9c58a3f00f80df2155e7e5374064dc83f1c1ee994f667562c3f8e17828f72fc9c8e6d5b92d109a29d6f9c95d5aaa9f124d3c
+  languageName: node
+  linkType: hard
+
+"reactotron-redux@npm:^3.1.3":
+  version: 3.1.9
+  resolution: "reactotron-redux@npm:3.1.9"
+  peerDependencies:
+    reactotron-core-client: "*"
+    redux: ">=4.0.0"
+  checksum: 10c0/4450fd3cbe0a04500c3788b931d20c22303c0094f3f64aaff3cc6cf466ed4b51375564e976743959c22099e83889e6db12c41076e3561759f3fc131adca23fce
   languageName: node
   linkType: hard
 
