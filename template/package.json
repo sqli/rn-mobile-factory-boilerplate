@@ -12,7 +12,8 @@
     "lint:fix": "eslint --ext .js,.jsx,.ts,.tsx src/ --fix",
     "prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx,json}\"",
     "prettier:format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
-    "tsc": "npx tsc --skipLibCheck"
+    "tsc": "npx tsc --skipLibCheck",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.24.0",
@@ -33,6 +34,8 @@
     "@babel/core": "^7.20.0",
     "@babel/preset-env": "^7.20.0",
     "@babel/runtime": "^7.20.0",
+    "@commitlint/cli": "^19.4.0",
+    "@commitlint/config-conventional": "^19.2.2",
     "@react-native/babel-preset": "0.74.87",
     "@react-native/eslint-config": "^0.74.87",
     "@react-native/metro-config": "^0.74.87",
@@ -51,7 +54,9 @@
     "eslint-import-resolver-typescript": "^3.5.3",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.32.2",
+    "husky": "^9.1.5",
     "jest": "^29.6.3",
+    "lint-staged": "^15.2.9",
     "metro-react-native-babel-preset": "^0.70.3",
     "prettier": "^2.4.1",
     "react-test-renderer": "18.0.0",
@@ -62,6 +67,10 @@
   "jest": {
     "preset": "react-native",
     "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,ts,tsx}": [],
+    "./**/*.{js,jsx,ts,tsx,json}": []
   },
   "engines": {
     "node": ">=18"

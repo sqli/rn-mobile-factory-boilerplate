@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+
+# In case of problem, for example when using NVM which
+# changes the position of the bin : execute this line in the Terminal
+# echo "export PATH=\"$(dirname $(which node)):\$PATH\"" > ~/.huskyrc
+
+export PATH=/usr/local/bin:$PATH
+npx lint-staged
