@@ -1,5 +1,5 @@
 stages:
-  - 👮lint
+  - 👮quality
   - 🛰sonar
   - 👷build
   - 🚀deploy
@@ -22,25 +22,44 @@ sonar:analyze:
   allow_failure: true
   tags:
     - React-Native
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
 
 ################################################################
-# 0) LINT                                                      #
+# 0) QUALITY                                                   #
 ################################################################
-eslint:analyze:
-  stage: 👮lint
+
+.quality: &quality
+  stage: 👮quality
   before_script:
     - nvm install
     - nvm use
-    - yarn install
-  script:
-    - yarn lint
+    - yarn
   tags:
     - React-Native
   allow_failure: false
   only:
-    - merge_requests
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
+
+typescript:
+  <<: *quality
+  script:
+    - yarn tsc
+
+prettier:
+  <<: *quality
+  script:
+    - yarn prettier
+
+eslint:
+  <<: *quality
+  script:
+    - yarn lint
+
+jest:
+  <<: *quality
+  script:
+    - yarn test --coverage
 
 ################################################################
 # 1) BUILD                                                     #
@@ -50,7 +69,7 @@ build:android:
   before_script:
     - nvm install
     - nvm use
-    - yarn install
+    - yarn
     - jabba use
     - cd ci/fastlane && bundle install
   script:
@@ -63,8 +82,11 @@ build:android:
       - android/app/build/outputs/bundle
       - android/app/build/outputs/apk
     expire_in: 2 weeks
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
 build:ios:
   stage: 👷build
@@ -83,8 +105,11 @@ build:ios:
     paths:
       - ios/build/ipa/
     expire_in: 2 weeks
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
 ################################################################
 # 2) DEPLOY                                                    #
@@ -99,8 +124,11 @@ deploy:ios:
     - bundle exec fastlane ios deploy_to_store
   tags:
     - React-Native
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
 deploy:android:
   stage: 🚀deploy
@@ -111,5 +139,8 @@ deploy:android:
     - bundle exec fastlane android deploy_to_store
   tags:
     - React-Native
-  only:
-    - develop
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
