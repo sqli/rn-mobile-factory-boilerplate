@@ -9,6 +9,7 @@
 
 import React, { useEffect } from 'react';
 
+import '@locales/i18n';
 import MainNavigator from '@navigators/MainNavigator';
 import { getCurrentRoute, navigationRef } from '@services/navigationServices';
 import { NavigationContainer } from '@react-navigation/native';

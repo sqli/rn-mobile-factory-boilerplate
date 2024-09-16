@@ -21,7 +21,9 @@
     "@react-navigation/native-stack": "^6.11.0",
     "@reduxjs/toolkit": "^2.2.7",
     "axios": "^1.7.5",
+    "i18next": "^23.14.0",
     "react": "18.2.0",
+    "react-i18next": "^15.0.1",
     "react-native": "0.74.5",
     "react-native-device-info": "^11.1.0",
     "react-native-keychain": "^8.2.0",
@@ -66,7 +68,14 @@
   },
   "jest": {
     "preset": "react-native",
-    "moduleFileExtensions": ["ts", "tsx", "js", "jsx", "json", "node"]
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [],

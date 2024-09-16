@@ -1,0 +1,9 @@
+{
+  "home": {
+    "header": "Accueil",
+    "detailsButton": "Voir les détails"
+  },
+  "details": {
+    "header": "Détails"
+  }
+}
