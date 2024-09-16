@@ -1,0 +1,11 @@
+{
+  "translation": {
+    "home": {
+      "header": "Home",
+      "detailsButton": "Go to details"
+    },
+    "details": {
+      "header": "Details"
+    }
+  }
+}

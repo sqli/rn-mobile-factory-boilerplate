@@ -4,6 +4,7 @@ import { Button, Image, StyleSheet, View } from 'react-native';
 
 import { navigate } from '@services/navigationServices';
 import { NavigationEnum } from '@enums/NavigationEnum';
+import { t } from 'i18next';
 
 const HomeScreen = () => {
   return (
@@ -14,7 +15,7 @@ const HomeScreen = () => {
           uri: 'https://avatars.githubusercontent.com/u/835963?s=200&v=4',
         }}
       />
-      <Button title="Go to Details" onPress={() => navigate(NavigationEnum.DETAILS)} />
+      <Button title={t('home.detailsButton')} onPress={() => navigate(NavigationEnum.DETAILS)} />
     </View>
   );
 };
