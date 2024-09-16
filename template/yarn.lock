@@ -1618,6 +1618,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.24.8":
+  version: 7.25.6
+  resolution: "@babel/runtime@npm:7.25.6"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10c0/d6143adf5aa1ce79ed374e33fdfd74fa975055a80bc6e479672ab1eadc4e4bfd7484444e17dd063a1d180e051f3ec62b357c7a2b817e7657687b47313158c3d2
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.0.0, @babel/template@npm:^7.24.7, @babel/template@npm:^7.25.0, @babel/template@npm:^7.3.3":
   version: 7.25.0
   resolution: "@babel/template@npm:7.25.0"
@@ -3783,14 +3792,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.5":
-  version: 1.7.5
-  resolution: "axios@npm:1.7.5"
+"axios@npm:^1.7.4":
+  version: 1.7.7
+  resolution: "axios@npm:1.7.7"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/1d5daeb28b3d1bb2a7b9f0743433c4bfbeaddc15461e50ebde487eec6c009af2515749d5261096dd430c90cd891bd310bcba5ec3967bae2033c4a307f58a6ad3
+  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
   languageName: node
   linkType: hard
 
@@ -3988,7 +3997,7 @@ __metadata:
     "@types/react-test-renderer": "npm:^18.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.52.0"
     "@typescript-eslint/parser": "npm:^5.52.0"
-    axios: "npm:^1.7.5"
+    axios: "npm:^1.7.4"
     babel-jest: "npm:^29.6.3"
     babel-plugin-module-resolver: "npm:4.1.0"
     eslint: "npm:^8.19.0"
@@ -3997,8 +4006,8 @@ __metadata:
     eslint-import-resolver-typescript: "npm:^3.5.3"
     eslint-plugin-import: "npm:^2.27.5"
     eslint-plugin-react: "npm:^7.32.2"
-    i18next: "npm:^23.14.0"
     husky: "npm:^9.1.5"
+    i18next: "npm:^23.14.0"
     jest: "npm:^29.6.3"
     lint-staged: "npm:^15.2.9"
     metro-react-native-babel-preset: "npm:^0.70.3"
@@ -4013,6 +4022,7 @@ __metadata:
     react-redux: "npm:^8.0.5"
     react-test-renderer: "npm:18.0.0"
     reactotron-react-native: "npm:^5.0.3"
+    reactotron-redux: "npm:^3.1.3"
     redux-persist: "npm:^6.0.0"
     typescript: "npm:^4.8.4"
   languageName: unknown
@@ -6319,15 +6329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^23.14.0":
-  version: 23.14.0
-  resolution: "i18next@npm:23.14.0"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.2"
-  checksum: 10c0/c26638a816e6213e515c158b17894ca3c54693911e1dc637cd279e11d53f8ded2494c3dcc6e2e94c639987ef63718193a1e2b4f3d5873fbcf89f266582140cd5
-  languageName: node
-  linkType: hard
-
 "human-signals@npm:^5.0.0":
   version: 5.0.0
   resolution: "human-signals@npm:5.0.0"
@@ -6341,6 +6342,15 @@ __metadata:
   bin:
     husky: bin.js
   checksum: 10c0/f42efb95a026303eb880898760f802d88409780dd72f17781d2dfc302177d4f80b641cf1f1694f53f6d97c536c7397684133d8c8fe4a4426f7460186a7d1c6b8
+  languageName: node
+  linkType: hard
+
+"i18next@npm:^23.14.0":
+  version: 23.14.0
+  resolution: "i18next@npm:23.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.23.2"
+  checksum: 10c0/c26638a816e6213e515c158b17894ca3c54693911e1dc637cd279e11d53f8ded2494c3dcc6e2e94c639987ef63718193a1e2b4f3d5873fbcf89f266582140cd5
   languageName: node
   linkType: hard
 
@@ -9609,6 +9619,16 @@ __metadata:
     react-native-flipper:
       optional: true
   checksum: 10c0/c3b780ba094cbb04ea5f0573b09a9c58a3f00f80df2155e7e5374064dc83f1c1ee994f667562c3f8e17828f72fc9c8e6d5b92d109a29d6f9c95d5aaa9f124d3c
+  languageName: node
+  linkType: hard
+
+"reactotron-redux@npm:^3.1.3":
+  version: 3.1.10
+  resolution: "reactotron-redux@npm:3.1.10"
+  peerDependencies:
+    reactotron-core-client: "*"
+    redux: ">=4.0.0"
+  checksum: 10c0/ea81ef22fceea18d53953f2ade590eec533bdba71dceeb721e3e16267c56820f25f37d0d378c87ace2051948670fdbd983cdab844de32b3990c05b9685ff7729
   languageName: node
   linkType: hard
 
