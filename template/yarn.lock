@@ -3792,7 +3792,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.4":
+"axios@npm:^1.7.5":
   version: 1.7.7
   resolution: "axios@npm:1.7.7"
   dependencies:
@@ -3997,7 +3997,7 @@ __metadata:
     "@types/react-test-renderer": "npm:^18.0.0"
     "@typescript-eslint/eslint-plugin": "npm:^5.52.0"
     "@typescript-eslint/parser": "npm:^5.52.0"
-    axios: "npm:^1.7.4"
+    axios: "npm:^1.7.5"
     babel-jest: "npm:^29.6.3"
     babel-plugin-module-resolver: "npm:4.1.0"
     eslint: "npm:^8.19.0"
