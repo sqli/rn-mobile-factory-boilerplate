@@ -1,10 +1,9 @@
 {
-  "translation": {
-    "home": {
-      "header": "Accueil"
-    },
-    "details": {
-      "header": "Détails"
-    }
+  "home": {
+    "header": "Accueil",
+    "detailsButton": "Voir les détails"
+  },
+  "details": {
+    "header": "Détails"
   }
 }

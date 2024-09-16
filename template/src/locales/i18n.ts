@@ -9,7 +9,7 @@ import fr from './resources/fr.json';
 i18n.use(initReactI18next).init({
   compatibilityJSON: 'v3',
   lng: LanguagesEnum.FR,
-  resources: { fr, en },
+  resources: { fr: { translation: fr }, en: { translation: en } },
 });
 
 export default i18n;

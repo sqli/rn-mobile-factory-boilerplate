@@ -13,6 +13,7 @@ module.exports = {
           '@constants': './src/constants',
           '@enums': './src/enums',
           '@hooks': './src/hooks',
+          '@locales': './src/locales',
           '@managers': './src/managers',
           '@models': './src/models',
           '@navigators': './src/navigators',
