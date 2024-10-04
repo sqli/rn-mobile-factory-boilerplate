@@ -6,7 +6,7 @@ import { ColorsEnum } from '@enums/ColorsEnum';
 import { NavigationEnum } from '@enums/NavigationEnum';
 import useAppSelector from '@hooks/useAppSelector';
 
-export default () => {
+const CustomStatusBar = () => {
   const currentRoute = useAppSelector(state => state.general.currentRoute);
   const getBackgroundColor = () => {
     switch (currentRoute) {
@@ -36,3 +36,5 @@ export default () => {
     </SafeAreaView>
   );
 };
+
+export default CustomStatusBar;

@@ -12,7 +12,7 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export default ({ children }: Props) => {
+const CustomSafeAreaView = ({ children }: Props) => {
   const currentRoute = useAppSelector(state => state.general.currentRoute);
 
   const getBackgroundColor = () => {
@@ -46,3 +46,5 @@ export default ({ children }: Props) => {
     </SafeAreaProvider>
   );
 };
+
+export default CustomSafeAreaView;
