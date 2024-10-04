@@ -63,6 +63,8 @@ yarn-error.log
 .metro-health-check*
 # testing
 /coverage
+coverage/
+test-report.xml
  
 # Yarn
 .yarn/*
