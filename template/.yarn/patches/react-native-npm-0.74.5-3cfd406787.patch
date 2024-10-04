@@ -1,0 +1,13 @@
+diff --git a/scripts/cocoapods/utils.rb b/scripts/cocoapods/utils.rb
+index 92f45efc0b8548a50b77dc47869fd4f55984972b..ed9fb2383c1a068818bea99ea032d11c2ef4545f 100644
+--- a/scripts/cocoapods/utils.rb
++++ b/scripts/cocoapods/utils.rb
+@@ -252,7 +252,7 @@ class ReactNativePodsUtils
+             node_binary = `type -a node`.split("\n").map { |path|
+                 path.gsub!("node is ", "")
+             }.select { |b|
+-                return !b.start_with?("/var")
++                !b.start_with?("/var")
+             }
+
+             node_binary = node_binary[0]

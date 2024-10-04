@@ -24,7 +24,7 @@
     "i18next": "^23.14.0",
     "react": "18.2.0",
     "react-i18next": "^15.0.1",
-    "react-native": "0.74.5",
+    "react-native": "patch:react-native@npm%3A0.74.5#~/.yarn/patches/react-native-npm-0.74.5-3cfd406787.patch",
     "react-native-device-info": "^11.1.0",
     "react-native-keychain": "^8.2.0",
     "react-native-safe-area-context": "^4.5.0",
