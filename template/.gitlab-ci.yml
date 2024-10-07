@@ -15,7 +15,7 @@ sonar:analyze:
     - nvm use
     - yarn
     - jabba use
-    - yarn test -- --coverage
+    - yarn test --coverage
     - ./ci/updateSonarProjectVersion.sh
   script:
     - sonar-scanner
