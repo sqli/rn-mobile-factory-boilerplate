@@ -1,8 +1,8 @@
 /**
  * boilerplate App
  *
- * Generated with the TypeScript template
- * https://github.com/react-native-community/react-native-template-typescript
+ * Generated with the template from SQLI Mobile Factory
+ * https://github.com/sqli/rn-mobile-factory-boilerplate
  *
  * @format
  */
@@ -17,6 +17,8 @@ import { initApp, setCurrentRoute } from '@redux/slices/generalSlice';
 import store, { persistor } from '@redux/store';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import CustomSafeAreaView from '@components/common/CustomSafeAreaView';
+import CustomStatusBar from '@components/common/CustomStatusBar';
 // import crashlyticsUtils from '@utils/crashlyticsUtils';
 
 // crashlyticsUtils();
@@ -29,15 +31,18 @@ const App = (): React.JSX.Element => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>
-        <NavigationContainer
-          ref={navigationRef}
-          onStateChange={() => {
-            const currentRouteName = getCurrentRoute()?.name;
-            store.dispatch(setCurrentRoute(currentRouteName));
-          }}
-        >
-          <MainNavigator />
-        </NavigationContainer>
+        <CustomStatusBar />
+        <CustomSafeAreaView>
+          <NavigationContainer
+            ref={navigationRef}
+            onStateChange={() => {
+              const currentRouteName = getCurrentRoute()?.name;
+              store.dispatch(setCurrentRoute(currentRouteName));
+            }}
+          >
+            <MainNavigator />
+          </NavigationContainer>
+        </CustomSafeAreaView>
       </PersistGate>
     </Provider>
   );
