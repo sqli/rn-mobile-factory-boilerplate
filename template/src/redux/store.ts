@@ -1,6 +1,7 @@
 import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
+// @ts-ignore
 import reactotron from '../../ReactotronConfig';
 import generalSlice from '@slices/generalSlice';
 import userSlice from '@slices/userSlice';
@@ -22,7 +23,9 @@ const rootReducer = combineReducers({
 const store = configureStore({
   reducer: rootReducer,
   enhancers: getDefaultEnhancers =>
+    // @ts-ignore
     __DEV__ ? getDefaultEnhancers().concat(reactotron.createEnhancer()) : getDefaultEnhancers(),
+  // @ts-ignore
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat(generalMiddleware, authentMiddleware),
 });

@@ -1,5 +1,6 @@
 import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
 import { AppDispatch, AppMiddleware } from '@redux/store';
+import { isAction } from '@reduxjs/toolkit';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
 
 export const generalMiddleware: AppMiddleware = store => next => action => {
@@ -7,15 +8,17 @@ export const generalMiddleware: AppMiddleware = store => next => action => {
   const _next = next(action);
   const nextState = store.getState();
 
-  switch (action.type) {
-    case initApp.type: {
-      // firebaseInit();
-      // dispatch(fetchRemoteConfigValues());
-      break;
-    }
-    case fetchRemoteConfigValues.fulfilled.type: {
-      checkRemoteConfigVersion(nextState.general.remoteConfigValues.min_version);
-      break;
+  if (isAction(action)) {
+    switch (action.type) {
+      case initApp.type: {
+        // firebaseInit();
+        // dispatch(fetchRemoteConfigValues());
+        break;
+      }
+      case fetchRemoteConfigValues.fulfilled.type: {
+        checkRemoteConfigVersion(nextState.general.remoteConfigValues.min_version);
+        break;
+      }
     }
   }
   return _next;
