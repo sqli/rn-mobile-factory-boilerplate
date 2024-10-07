@@ -38,7 +38,7 @@ sonar:analyze:
   tags:
     - React-Native
   allow_failure: false
-  only:
+  rules:
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
 typescript:
@@ -93,7 +93,7 @@ build:ios:
   before_script:
     - nvm install
     - nvm use
-    - npm install
+    - yarn
     - cd ci/fastlane && bundle install
     - bundle exec "cd ../../ios && pod install --repo-update"
   script:
