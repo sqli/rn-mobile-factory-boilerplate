@@ -12,6 +12,7 @@ import {
 import generalSlice from '@slices/generalSlice';
 import userSlice from '@slices/userSlice';
 
+// @ts-ignore
 import reactotron from '../../ReactotronConfig';
 import authentSlice from './slices/authentSlice';
 
