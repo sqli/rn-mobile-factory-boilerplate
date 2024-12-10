@@ -1,10 +1,11 @@
-import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
-import { AppDispatch, AppMiddleware } from '@redux/store';
 import { isAction } from '@reduxjs/toolkit';
+
+import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
+import { AppMiddleware } from '@redux/store';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
 
 export const generalMiddleware: AppMiddleware = store => next => action => {
-  const dispatch: AppDispatch = store.dispatch;
+  // const dispatch: AppDispatch = store.dispatch;
   const _next = next(action);
   const nextState = store.getState();
 

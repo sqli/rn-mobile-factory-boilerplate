@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import { isAction } from '@reduxjs/toolkit';
+
 import { logIn, logOut } from '@redux/slices/authentSlice';
 import { AppDispatch, AppMiddleware } from '@redux/store';
-import { isAction } from '@reduxjs/toolkit';
 
 export const authentMiddleware: AppMiddleware = store => next => action => {
   const dispatch: AppDispatch = store.dispatch;
@@ -13,7 +14,7 @@ export const authentMiddleware: AppMiddleware = store => next => action => {
       case logIn.type:
         break;
       case logOut.type:
-        //reset your slices here
+        // reset your slices here
         break;
       default:
         break;
