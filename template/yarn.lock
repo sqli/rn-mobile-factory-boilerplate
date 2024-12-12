@@ -3082,14 +3082,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@react-native-async-storage/async-storage@npm:^1.24.0":
-  version: 1.24.0
-  resolution: "@react-native-async-storage/async-storage@npm:1.24.0"
+"@react-native-async-storage/async-storage@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@react-native-async-storage/async-storage@npm:2.1.0"
   dependencies:
     merge-options: "npm:^3.0.4"
   peerDependencies:
-    react-native: ^0.0.0-0 || >=0.60 <1.0
-  checksum: 10c0/cad2098ef84251f2ab8ebc07b750e585a20ac7ca07f26e5441e957a76f2b66f01d10ef5fbddb63d675431377b31beb5208548093e1eb17d262d2184b51133f4d
+    react-native: ^0.0.0-0 || >=0.65 <1.0
+  checksum: 10c0/76a81a55059e93e256f6e9cf3f33a49d24ba83ce2f88e52343107953a66168c533bb387111a88708247c926297ee93c681c4936bcb66993dba78ea7fb28c9fdf
   languageName: node
   linkType: hard
 
@@ -4792,7 +4792,7 @@ __metadata:
     "@babel/runtime": "npm:^7.25.0"
     "@commitlint/cli": "npm:^19.4.0"
     "@commitlint/config-conventional": "npm:^19.2.2"
-    "@react-native-async-storage/async-storage": "npm:^1.24.0"
+    "@react-native-async-storage/async-storage": "npm:^2.1.0"
     "@react-native-community/cli": "npm:15.0.1"
     "@react-native-community/cli-platform-android": "npm:15.0.1"
     "@react-native-community/cli-platform-ios": "npm:15.0.1"
@@ -4834,8 +4834,8 @@ __metadata:
     react-native: "npm:^0.76.4"
     react-native-device-info: "npm:^11.1.0"
     react-native-keychain: "npm:^8.2.0"
-    react-native-safe-area-context: "npm:^4.11.0"
-    react-native-screens: "npm:^3.20.0"
+    react-native-safe-area-context: "npm:^5.0.0"
+    react-native-screens: "npm:^3.29.0"
     react-redux: "npm:^8.0.5"
     react-test-renderer: "npm:18.3.1"
     reactotron-react-native: "npm:^5.0.3"
@@ -10465,26 +10465,26 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-safe-area-context@npm:^4.11.0":
-  version: 4.11.0
-  resolution: "react-native-safe-area-context@npm:4.11.0"
+"react-native-safe-area-context@npm:^5.0.0":
+  version: 5.0.0
+  resolution: "react-native-safe-area-context@npm:5.0.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/cf50358c1ff0e50d496ba9a76f4823ac5329f0b804f67f605e5b12d0281d07f16a329a4820e7d567d6afb77cc989dfff953ab48ee63cbcaa35d6fb600cbb4325
+  checksum: 10c0/6b25f0e596ee439dc3c239bb69d193cac690de80513a2b735c9d6a1dc76ec8c60775f4e41f51b3bb78e473a5e60b095300a627a1b8aaae00425f7c36e489b69c
   languageName: node
   linkType: hard
 
-"react-native-screens@npm:^3.20.0":
-  version: 3.34.0
-  resolution: "react-native-screens@npm:3.34.0"
+"react-native-screens@npm:^3.29.0":
+  version: 3.35.0
+  resolution: "react-native-screens@npm:3.35.0"
   dependencies:
     react-freeze: "npm:^1.0.0"
     warn-once: "npm:^0.1.0"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10c0/568af49a1d79797ebecf5b8c815d44b651b0affdd82d7a8024b9e5e71250a23e108d73562200ef571b806c6a9ebba0484510e710246165dbdc50ad18e4d77619
+  checksum: 10c0/51b4ae9a5432dc980d560ac07baaddda12a78f56f2106e0e9498f6b46d4928c26d8288c4818627903675cc8c4d3643f14358d3ae448a3de2cb962a16270c201d
   languageName: node
   linkType: hard
 
