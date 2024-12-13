@@ -278,13 +278,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activesupport (>= 6.1.7.5, < 7.1.0)
-  cocoapods (>= 1.13, < 1.15)
+  activesupport (>= 6.1.7.5, != 7.1.0)
+  cocoapods (>= 1.13, != 1.15.1, != 1.15.0)
   dotenv (~> 2.8.1)
   fastlane (~> 2.212.2)
   fastlane-plugin-appcenter
   fastlane-plugin-versioning
   xcode-install (~> 2.8.1)
+  xcodeproj (< 1.26.0)
 
 RUBY VERSION
    ruby 2.7.3p183
