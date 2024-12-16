@@ -19,13 +19,20 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import CustomSafeAreaView from '@components/common/CustomSafeAreaView';
 import CustomStatusBar from '@components/common/CustomStatusBar';
+import BootSplash from 'react-native-bootsplash';
 // import crashlyticsUtils from '@utils/crashlyticsUtils';
 
 // crashlyticsUtils();
 
 const App = (): React.JSX.Element => {
   useEffect(() => {
-    store.dispatch(initApp());
+    const init = async () => {
+      store.dispatch(initApp());
+    };
+
+    init().finally(async () => {
+      await BootSplash.hide({ fade: true });
+    });
   }, []);
 
   return (
