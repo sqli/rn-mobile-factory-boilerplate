@@ -32,6 +32,9 @@ Now that you have create your Firebase project and added the configuration files
 - In `App.tsx` uncomment `import crashlytics` et `crashlyticsUtils()`
 - In `general.ts` middleware uncomment `initApp` functions.
 - In `firebaseInit.ts` and `RemoteConfigManager.ts` uncomment the imports
+- In `remoteConfigManager.ts` uncomment the `getAllRemoteConfigValues` function
+- In `generalMiddleware.ts` uncomment `// firebaseInit();` `// dispatch(fetchRemoteConfigValues());`
+- In `firebaseInit.ts` uncomment `setNotificationsEnabled` function
 
 > Firebase is now initialized with analytics, crashlytics, firestore, messaging, performance and remote-config.
 > You can now see logs of your `fcmtoken`, and reports in your Firebase console.
