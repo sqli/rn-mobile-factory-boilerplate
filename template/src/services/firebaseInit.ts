@@ -21,90 +21,90 @@ export const checkRemoteConfigVersion = (remoteVersion?: string) => {
   }
 };
 
-const setNotificationsEnabled = (
-  status: FirebaseMessagingTypes.AuthorizationStatus,
-  messaging: ReactNativeFirebase.FirebaseModuleWithStatics<
-    FirebaseMessagingTypes.Module,
-    FirebaseMessagingTypes.Statics
-  >,
-) => {
-  if (status === messaging.AuthorizationStatus.DENIED) {
-    // TODO
-    console.log('🐙 notifs not allowed');
-  } else {
-    // TODO
-    console.log('🐙 notifs allowed');
-  }
-};
+// const setNotificationsEnabled = (
+//   status: FirebaseMessagingTypes.AuthorizationStatus,
+//   messaging: ReactNativeFirebase.FirebaseModuleWithStatics<
+//     FirebaseMessagingTypes.Module,
+//     FirebaseMessagingTypes.Statics
+//   >,
+// ) => {
+//   if (status === messaging.AuthorizationStatus.DENIED) {
+//     // TODO
+//     console.log('🐙 notifs not allowed');
+//   } else {
+//     // TODO
+//     console.log('🐙 notifs allowed');
+//   }
+// };
 
 export const firebaseInit = () => {
-  analytics()
-    .setAnalyticsCollectionEnabled(!__DEV__)
-    .catch(error => {
-      console.error(
-        `setAnalyticsCollectionEnabled error: ${JSON.stringify(error)}`,
-        'setAnalyticsCollectionEnabled',
-      );
-    });
-  crashlytics()
-    .setCrashlyticsCollectionEnabled(!__DEV__)
-    .catch(error => {
-      console.error(
-        `setCrashlyticsCollectionEnabled error: ${JSON.stringify(error)}`,
-        'setCrashlyticsCollectionEnabled',
-      );
-    });
-  perf()
-    .setPerformanceCollectionEnabled(!__DEV__)
-    .catch(error => {
-      console.error(
-        `setPerformanceCollectionEnabled error: ${JSON.stringify(error)}`,
-        'setPerformanceCollectionEnabled',
-      );
-    });
+  // analytics()
+  //   .setAnalyticsCollectionEnabled(!__DEV__)
+  //   .catch(error => {
+  //     console.error(
+  //       `setAnalyticsCollectionEnabled error: ${JSON.stringify(error)}`,
+  //       'setAnalyticsCollectionEnabled',
+  //     );
+  //   });
+  // crashlytics()
+  //   .setCrashlyticsCollectionEnabled(!__DEV__)
+  //   .catch(error => {
+  //     console.error(
+  //       `setCrashlyticsCollectionEnabled error: ${JSON.stringify(error)}`,
+  //       'setCrashlyticsCollectionEnabled',
+  //     );
+  //   });
+  // perf()
+  //   .setPerformanceCollectionEnabled(!__DEV__)
+  //   .catch(error => {
+  //     console.error(
+  //       `setPerformanceCollectionEnabled error: ${JSON.stringify(error)}`,
+  //       'setPerformanceCollectionEnabled',
+  //     );
+  //   });
   // for Android to check if Notifications are enabled
-  messaging()
-    .hasPermission()
-    .then(status => {
-      setNotificationsEnabled(status, messaging);
-    });
+  // messaging()
+  //   .hasPermission()
+  //   .then(status => {
+  //     setNotificationsEnabled(status, messaging);
+  //   });
   // for iOS
-  messaging()
-    .requestPermission()
-    .then(status => {
-      setNotificationsEnabled(status, messaging);
-      messaging()
-        .getToken()
-        .then(fcmToken => {
-          // TODO
-          console.log('🐣 fcmToken', fcmToken);
-        })
-        .catch(error => {
-          console.error(
-            `setMessagingCollectionEnabled error: ${error}`,
-            'setMessagingCollectionEnabled',
-          );
-        });
-      // timeout so when first opening the app, api is not called twice (token didn't exist before)
-      setTimeout(() => {
-        messaging().onTokenRefresh(fcmToken => {
-          // TODO
-          console.log('🐣 fcmToken', fcmToken);
-        });
-      }, 5000);
-    });
+  // messaging()
+  //   .requestPermission()
+  //   .then(status => {
+  //     setNotificationsEnabled(status, messaging);
+  //     messaging()
+  //       .getToken()
+  //       .then(fcmToken => {
+  //         // TODO
+  //         console.log('🐣 fcmToken', fcmToken);
+  //       })
+  //       .catch(error => {
+  //         console.error(
+  //           `setMessagingCollectionEnabled error: ${error}`,
+  //           'setMessagingCollectionEnabled',
+  //         );
+  //       });
+  //     // timeout so when first opening the app, api is not called twice (token didn't exist before)
+  //     setTimeout(() => {
+  //       messaging().onTokenRefresh(fcmToken => {
+  //         // TODO
+  //         console.log('🐣 fcmToken', fcmToken);
+  //       });
+  //     }, 5000);
+  //   });
   // Handle notification information when notif is received and the app is in foreground
-  messaging().onMessage(message => {
-    __DEV__ && console.log(message);
-  });
+  // messaging().onMessage(message => {
+  //   __DEV__ && console.log(message);
+  // });
   // Handle notification information when notif is opened and the app is in background
-  messaging().onNotificationOpenedApp(message => {
-    setTimeout(() => {
-      // TODO
-      message && console.log('🐙 notif opened');
-    }, 300);
-  });
-  messaging().setBackgroundMessageHandler(async message => {
-    console.log(message);
-  });
+  // messaging().onNotificationOpenedApp(message => {
+  //   setTimeout(() => {
+  //     // TODO
+  //     message && console.log('🐙 notif opened');
+  //   }, 300);
+  // });
+  // messaging().setBackgroundMessageHandler(async message => {
+  //   console.log(message);
+  // });
 };

@@ -2,18 +2,16 @@ import React from 'react';
 
 import { Image, StyleSheet, View } from 'react-native';
 
-const DetailsScreen = () => {
-  return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={{
-          uri: 'https://avatars.githubusercontent.com/u/835963?s=200&v=4',
-        }}
-      />
-    </View>
-  );
-};
+const DetailsScreen = () => (
+  <View style={styles.container}>
+    <Image
+      style={styles.image}
+      source={{
+        uri: 'https://avatars.githubusercontent.com/u/835963?s=200&v=4',
+      }}
+    />
+  </View>
+);
 
 export default DetailsScreen;
 

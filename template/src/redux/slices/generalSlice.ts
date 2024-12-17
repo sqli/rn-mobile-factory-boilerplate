@@ -14,9 +14,10 @@ export const generalInitialState: GeneralInitialState = {
   remoteConfigValues: {},
 };
 
-export const fetchRemoteConfigValues = createAsyncThunk('fetchRemoteConfigValues', async () => {
-  return await remoteConfigManager.getAllRemoteConfigValues();
-});
+export const fetchRemoteConfigValues = createAsyncThunk(
+  'fetchRemoteConfigValues',
+  async () => await remoteConfigManager.getAllRemoteConfigValues(),
+);
 
 const generalSlice = createSlice({
   name: 'general',

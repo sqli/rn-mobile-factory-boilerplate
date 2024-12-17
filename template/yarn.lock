@@ -4938,6 +4938,7 @@ __metadata:
     react-native: "npm:^0.76.3"
     react-native-device-info: "npm:^11.1.0"
     react-native-keychain: "npm:^8.2.0"
+    react-native-permissions: "npm:^5.2.1"
     react-native-safe-area-context: "npm:^5.0.0"
     react-native-screens: "npm:^3.29.0"
     react-redux: "npm:^8.0.5"
@@ -10577,6 +10578,20 @@ __metadata:
   version: 8.2.0
   resolution: "react-native-keychain@npm:8.2.0"
   checksum: 10c0/7c32335f673c60bd64576bd21b087cdf601087f1588296367546b5fca15aa83be86723d5414ea90667ebc251237918853f65147de7f8df0707b228e6a13ab829
+  languageName: node
+  linkType: hard
+
+"react-native-permissions@npm:^5.2.1":
+  version: 5.2.1
+  resolution: "react-native-permissions@npm:5.2.1"
+  peerDependencies:
+    react: ">=18.1.0"
+    react-native: ">=0.70.0"
+    react-native-windows: ">=0.70.0"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 10c0/36e2ce5c349a359b0dc18b2ec435f5af66ba4fc43bf905be5582d14e4c9544064e56cbe4a6a5781672cfa7879ac44e93c9250388fd0e2b0b069419572e11bbbb
   languageName: node
   linkType: hard
 

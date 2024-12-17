@@ -27,6 +27,7 @@
     "react-native": "^0.76.3",
     "react-native-device-info": "^11.1.0",
     "react-native-keychain": "^8.2.0",
+    "react-native-permissions": "^5.2.1",
     "react-native-safe-area-context": "^5.0.0",
     "react-native-screens": "^3.29.0",
     "react-redux": "^8.0.5",

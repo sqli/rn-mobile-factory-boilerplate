@@ -2,17 +2,19 @@ import { combineReducers, configureStore, Middleware } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
 
 // @ts-ignore
-import reactotron from '../../ReactotronConfig';
-import generalSlice from '@slices/generalSlice';
-import userSlice from '@slices/userSlice';
+import { authentMiddleware } from '@middlewares/authentMiddleware';
 import { generalMiddleware } from '@middlewares/generalMiddleware';
 import {
   authentPersistConfig,
   generalPersistConfig,
   userPersistConfig,
 } from '@redux/configs/persistConfigs';
+import generalSlice from '@slices/generalSlice';
+import userSlice from '@slices/userSlice';
+
+// @ts-ignore
+import reactotron from '../../ReactotronConfig';
 import authentSlice from './slices/authentSlice';
-import { authentMiddleware } from '@middlewares/authentMiddleware';
 
 const rootReducer = combineReducers({
   [authentSlice.name]: persistReducer(authentPersistConfig, authentSlice.reducer),

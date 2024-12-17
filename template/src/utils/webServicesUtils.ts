@@ -1,10 +1,10 @@
 import axios from 'axios';
 
 import webServicesConstants from '@constants/webServicesConstants';
-import store from '@redux/store';
-import { logOut } from '@redux/slices/authentSlice';
-import { WebServiceStatusEnum } from '@enums/WebServiceStatusEnum';
 import { RoutesEnum } from '@enums/RoutesEnum';
+import { WebServiceStatusEnum } from '@enums/WebServiceStatusEnum';
+import { logOut } from '@redux/slices/authentSlice';
+import store from '@redux/store';
 
 export const getDefaultHeaders = () => ({
   Authorization: `Bearer ${wsSettings.token}`,
