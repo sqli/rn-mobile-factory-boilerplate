@@ -1,5 +1,3 @@
-import { isAction } from '@reduxjs/toolkit';
-
 import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
 import { AppMiddleware } from '@redux/store';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
@@ -9,17 +7,15 @@ export const generalMiddleware: AppMiddleware = store => next => action => {
   const _next = next(action);
   const nextState = store.getState();
 
-  if (isAction(action)) {
-    switch (action.type) {
-      case initApp.type: {
-        // firebaseInit();
-        // dispatch(fetchRemoteConfigValues());
-        break;
-      }
-      case fetchRemoteConfigValues.fulfilled.type: {
-        checkRemoteConfigVersion(nextState.general.remoteConfigValues.min_version);
-        break;
-      }
+  switch (true) {
+    case initApp.match(action): {
+      // firebaseInit();
+      // dispatch(fetchRemoteConfigValues());
+      break;
+    }
+    case fetchRemoteConfigValues.fulfilled.match(action): {
+      checkRemoteConfigVersion(nextState.general.remoteConfigValues.min_version);
+      break;
     }
   }
   return _next;
