@@ -1,7 +1,7 @@
 # SQLI Mobile Factory React Native Boilerplate
 
 Welcome to the [SQLI](https://github.com/sqli) starter kit for [React Native](https://reactnative.dev/) apps.  
-This custom one is built upon the **0.74 version of RN** with **typescript**.
+This custom one is built upon the **0.76 version of RN** with **typescript**.
 
 The template is preconfigured for **Firebase** and **CI/CD** with the combo **Gitlab CI** x **Fastlane** (you may find some details in the template folder inside the `README.md` itself).
 
@@ -24,16 +24,16 @@ React Native **Async storage** - 1.24.0
 
 Run this command in your favorite terminal :
 
-`npx react-native@0.74.5 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
+`npx react-native@0.76.3 init MyApp --template https://github.com/sqli/rn-mobile-factory-boilerplate`
 
 You can run your app like this :
 
--   `nvm install` to install the correct node version
--   `nvm use` to use the correct node version
--   `yarn` to install the packages
--   `yarn start` to start the metro bundler
--   `yarn pods` & `yarn ios` to run on iOS
--   `jabba use` & `yarn android` to run on Android
+- `nvm install` to install the correct node version
+- `nvm use` to use the correct node version
+- `yarn` to install the packages
+- `yarn start` to start the metro bundler
+- `yarn pods` & `yarn ios` to run on iOS
+- `jabba use` & `yarn android` to run on Android
 
 ## About us
 
