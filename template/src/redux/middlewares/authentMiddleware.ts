@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { isAction } from '@reduxjs/toolkit';
-
 import { logIn, logOut } from '@redux/slices/authentSlice';
 import { AppDispatch, AppMiddleware } from '@redux/store';
 
@@ -9,16 +7,15 @@ export const authentMiddleware: AppMiddleware = store => next => action => {
   const _next = next(action);
   const nextState = store.getState();
 
-  if (isAction(action)) {
-    switch (action.type) {
-      case logIn.type:
-        break;
-      case logOut.type:
-        // reset your slices here
-        break;
-      default:
-        break;
-    }
+  switch (true) {
+    case logIn.match(action):
+      break;
+    case logOut.match(action):
+      // reset your slices here
+      break;
+    default:
+      break;
   }
+
   return _next;
 };
