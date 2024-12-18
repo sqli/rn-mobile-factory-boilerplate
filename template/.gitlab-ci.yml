@@ -2,7 +2,8 @@ stages:
   - 👮quality
   - 🛰sonar
   - 👷build
-  - 🚀deploy
+  - 🚀deploy-sqli
+  - 🚀deploy-client
 
 ################################################################
 # 0) SONAR                                                     #
@@ -64,7 +65,8 @@ jest:
 ################################################################
 # 1) BUILD                                                     #
 ################################################################
-build:android:
+# Template
+.buildAndroid: &buildAndroid
   stage: 👷build
   before_script:
     - nvm install
@@ -73,22 +75,16 @@ build:android:
     - jabba use
     - cd ci/fastlane && bundle install
   script:
-    - bundle exec fastlane android build
+    - bundle exec fastlane android build --env ${BUILD_ENV}
   tags:
     - React-Native
   allow_failure: true
   artifacts:
     paths:
-      - android/app/build/outputs/bundle
-      - android/app/build/outputs/apk
+      - android/app/build/outputs/apk/${BUILD_ENV}
     expire_in: 2 weeks
-  rules:
-    - if: $CI_COMMIT_BRANCH == "develop"
-    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
-    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
-build:ios:
+.buildiOS: &buildiOS
   stage: 👷build
   before_script:
     - nvm install
@@ -97,7 +93,7 @@ build:ios:
     - cd ci/fastlane && bundle install
     - bundle exec "cd ../../ios && pod install --repo-update"
   script:
-    - bundle exec fastlane ios build
+    - bundle exec fastlane ios build --env ${BUILD_ENV}
   tags:
     - Xcode14
   allow_failure: true
@@ -111,36 +107,141 @@ build:ios:
     - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
     - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
-################################################################
-# 2) DEPLOY                                                    #
-################################################################
-
-deploy:ios:
-  stage: 🚀deploy
-  before_script:
-    - cd ci/
-    - bundle install
-  script:
-    - bundle exec fastlane ios deploy_to_store
-  tags:
-    - React-Native
+# Jobs
+🛠build:ios:dev:
+  <<: *buildiOS
+  variables:
+    BUILD_ENV: dev
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
     - if: $CI_COMMIT_BRANCH =~ /^release.*$/
     - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
 
-deploy:android:
-  stage: 🚀deploy
-  before_script:
-    - cd ci/
-    - bundle install
-  script:
-    - bundle exec fastlane android deploy_to_store
-  tags:
-    - React-Native
+🛠build:ios:production:
+  <<: *buildiOS
+  variables:
+    BUILD_ENV: production
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+
+🛠build:android:dev:
+  <<: *buildAndroid
+  variables:
+    BUILD_ENV: dev
   rules:
     - if: $CI_COMMIT_BRANCH == "develop"
     - if: $CI_COMMIT_BRANCH =~ /^release.*$/
     - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
-    - if: '$CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_TARGET_BRANCH_NAME =~ /^develop$/'
+
+🛠build:android:production:
+  <<: *buildAndroid
+  variables:
+    BUILD_ENV: production
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+
+################################################################
+# 2) DEPLOY SQLI                                               #
+################################################################
+
+# Templates
+.deploy: &deploy
+  before_script:
+    - cd ci/
+    - bundle install
+  variables:
+    SECURE_FILES_DOWNLOAD_PATH: './certificates'
+  script:
+    - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
+    - bundle exec fastlane ${BUILD_PLATFORM} deploy_to_store store:${DEPLOY_STORE} --env ${BUILD_ENV}
+  tags:
+    - React-Native
+
+# Jobs
+🚀deploy-sqli:ios:dev:
+  <<: *deploy
+  stage: 🚀deploy-sqli
+  variables:
+    BUILD_PLATFORM: ios
+    BUILD_ENV: dev
+    DEPLOY_STORE: privateSQLI
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:ios:dev
+
+🚀deploy-sqli:android:dev:
+  <<: *deploy
+  stage: 🚀deploy-sqli
+  variables:
+    BUILD_PLATFORM: android
+    BUILD_ENV: dev
+    DEPLOY_STORE: privateSQLI
+  rules:
+    - if: $CI_COMMIT_BRANCH == "develop"
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:android:dev
+
+################################################################
+# 3) DEPLOY CLIENT                                             #
+################################################################
+
+🚀deploy-client:ios:dev:
+  <<: *deploy
+  stage: 🚀deploy-client
+  variables:
+    BUILD_PLATFORM: ios
+    BUILD_ENV: dev
+    DEPLOY_STORE: privateSQLI
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:ios:dev
+
+🚀deploy-client:android:dev:
+  <<: *deploy
+  stage: 🚀deploy-client
+  variables:
+    BUILD_PLATFORM: android
+    BUILD_ENV: dev
+    DEPLOY_STORE: privateClient
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:android:drdevgon
+  when: manual
+
+🚀deploy-client:ios:production:
+  <<: *deploy
+  stage: 🚀deploy-client
+  variables:
+    BUILD_PLATFORM: ios
+    BUILD_ENV: production
+    DEPLOY_STORE: privateSQLI
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:ios:dev
+
+🚀deploy-client:android:production:
+  <<: *deploy
+  stage: 🚀deploy-client
+  variables:
+    BUILD_PLATFORM: android
+    BUILD_ENV: production
+    DEPLOY_STORE: privateClient
+  rules:
+    - if: $CI_COMMIT_BRANCH =~ /^release.*$/
+    - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
+  dependencies:
+    - 🛠build:android:drdevgon
+  when: manual

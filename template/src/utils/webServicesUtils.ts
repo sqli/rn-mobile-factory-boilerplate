@@ -1,10 +1,9 @@
-import axios from 'axios';
-
 import webServicesConstants from '@constants/webServicesConstants';
-import { RoutesEnum } from '@enums/RoutesEnum';
 import { WebServiceStatusEnum } from '@enums/WebServiceStatusEnum';
 import { logOut } from '@redux/slices/authentSlice';
 import store from '@redux/store';
+import axios from 'axios';
+import Config from 'react-native-config';
 
 export const getDefaultHeaders = () => ({
   Authorization: `Bearer ${wsSettings.token}`,
@@ -25,7 +24,7 @@ export const wsSettings = {
 };
 
 export const defaultWSConfig = axios.create({
-  baseURL: RoutesEnum.BASE_URL,
+  baseURL: Config.BASE_URL,
   timeout: webServicesConstants.TIMEOUT,
 });
 

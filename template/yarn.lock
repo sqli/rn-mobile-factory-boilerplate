@@ -4936,6 +4936,7 @@ __metadata:
     react: "npm:18.3.1"
     react-i18next: "npm:^15.0.1"
     react-native: "npm:^0.76.3"
+    react-native-config: "npm:^1.5.3"
     react-native-device-info: "npm:^11.1.0"
     react-native-keychain: "npm:^8.2.0"
     react-native-permissions: "npm:^5.2.1"
@@ -10552,6 +10553,18 @@ __metadata:
   version: 17.0.2
   resolution: "react-is@npm:17.0.2"
   checksum: 10c0/2bdb6b93fbb1820b024b496042cce405c57e2f85e777c9aabd55f9b26d145408f9f74f5934676ffdc46f3dcff656d78413a6e43968e7b3f92eea35b3052e9053
+  languageName: node
+  linkType: hard
+
+"react-native-config@npm:^1.5.3":
+  version: 1.5.3
+  resolution: "react-native-config@npm:1.5.3"
+  peerDependencies:
+    react-native-windows: ">=0.61"
+  peerDependenciesMeta:
+    react-native-windows:
+      optional: true
+  checksum: 10c0/98e4659191881a72bf756efa469debe90b84ba5f366489dbdebabd45b4f9ec5b05f116db5bdf181c5c688b759c5bc60365b675ff7446b10216056cef15b5ce3b
   languageName: node
   linkType: hard
 
