@@ -123,10 +123,8 @@ platform :android do
     lane :build do
         # Increment version & build number
         version_number = JSON.parse(open("../../package.json").read)["version"]
-        year = Time.now.strftime("%y")
-        year[0] = ''
-        dateTime = Time.now.strftime("%j%H%M")
-        build_number = 2020000000 + (year.to_i - 1) * 10000000 + dateTime.to_i
+        dateTime = Time.now.strftime("%y%j%H%M")
+        build_number = dateTime.to_i
         gradle(
             task: "clean",
             gradle_path: "../android/gradlew",
