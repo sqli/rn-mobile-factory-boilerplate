@@ -3,6 +3,7 @@ import React from 'react';
 import { Button, Image, StyleSheet, Text, View } from 'react-native';
 
 import { NavigationEnum } from '@enums/NavigationEnum';
+import { NavigationEnum } from '@enums/NavigationEnum';
 import { navigate } from '@services/navigationServices';
 import { t } from 'i18next';
 import Config from 'react-native-config';
@@ -16,7 +17,11 @@ const HomeScreen = () => (
       }}
     />
     <Text>{'Environnement: ' + Config.ENV}</Text>
-    <Button title={t('home.detailsButton')} onPress={() => navigate(NavigationEnum.DETAILS)} />
+    <Button
+      testID="details-button"
+      title={t('home.detailsButton')}
+      onPress={() => navigate(NavigationEnum.DETAILS)}
+    />
   </View>
 );
 
