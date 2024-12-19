@@ -1,4 +1,4 @@
-# Tests E2E avec Maestro
+# Tests avec Maestro
 
 ## Prérequis
 
