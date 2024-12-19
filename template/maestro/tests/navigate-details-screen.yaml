@@ -1,0 +1,12 @@
+appId: com.sqli.boilerplate
+---
+- launchApp
+
+- assertVisible:
+    id: details-button
+
+- tapOn:
+    id: details-button
+
+- assertVisible:
+    id: details-screen
