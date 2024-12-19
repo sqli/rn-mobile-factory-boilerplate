@@ -1,4 +1,12 @@
 apply plugin: "com.android.application"
+project.ext.envConfigFiles = [
+        productiondebug: ".env.production",
+        productionrelease: ".env.production",
+        devrelease: ".env.dev",
+        devdebug: ".env.dev",
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 apply plugin: "org.jetbrains.kotlin.android"
 //apply plugin: 'com.google.gms.google-services'
 //apply plugin: 'com.google.firebase.crashlytics'
@@ -72,6 +80,20 @@ def findPassword() {
         return ""
 }
 
+def findVersionCode() {
+    if (project.hasProperty('versionCode'))
+        return project.property('versionCode').toInteger()
+    else
+        return 1
+}
+
+def findVersionName() {
+    if (project.hasProperty('versionName'))
+        return project.property('versionName').toString()
+    else
+        return "0.1"
+}
+
 /**
  * The preferred build flavor of JavaScriptCore (JSC)
  *
@@ -96,8 +118,9 @@ android {
         applicationId "com.sqli.boilerplate"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode findVersionCode()
+        versionName findVersionName()
+        resValue "string", "build_config_package", "com.sqli.boilerplate"
     }
     signingConfigs {
         debug {
@@ -111,6 +134,18 @@ android {
             storePassword findPassword()
             keyAlias 'boilerplate'
             keyPassword findPassword()
+        }
+    }
+    flavorDimensions 'env'
+    productFlavors {
+        dev {
+            dimension 'env'
+            applicationIdSuffix '.dev'
+            resValue "string", "app_name", "Dev Boilerplate"
+        }
+        production {
+            dimension 'env'
+            resValue "string", "app_name", "Boilerplate"
         }
     }
     buildTypes {

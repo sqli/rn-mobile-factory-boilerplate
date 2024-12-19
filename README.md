@@ -32,8 +32,8 @@ You can run your app like this :
 - `nvm use` to use the correct node version
 - `yarn` to install the packages
 - `yarn start` to start the metro bundler
-- `yarn pods` & `yarn ios` to run on iOS
-- `jabba use` & `yarn android` to run on Android
+- `yarn pods` & `yarn ios:dev:debug` to run on iOS
+- `jabba use` & `yarn android:dev:debug` to run on Android
 
 ## About us
 

@@ -14,6 +14,12 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
+project 'boilerplate',
+'Debug' => :debug, 
+'Release' => :release, 
+'Dev.Debug' => :debug,
+'Dev.Release' => :release
+
 target 'boilerplate' do
   production = ENV["PRODUCTION"] == "1"
 
