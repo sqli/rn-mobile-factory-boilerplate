@@ -26,7 +26,10 @@ const store = configureStore({
   reducer: rootReducer,
   enhancers: getDefaultEnhancers =>
     // @ts-ignore
-    __DEV__ ? getDefaultEnhancers().concat(reactotron.createEnhancer()) : getDefaultEnhancers(),
+    __DEV__ && !process.env.JEST_WORKER_ID
+      ? // @ts-ignore
+        getDefaultEnhancers().concat(reactotron.createEnhancer())
+      : getDefaultEnhancers(),
   // @ts-ignore
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({ serializableCheck: false }).concat(generalMiddleware, authentMiddleware),

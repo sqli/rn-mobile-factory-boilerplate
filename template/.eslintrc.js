@@ -36,6 +36,7 @@ module.exports = {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/func-call-spacing': 'off',
     'no-shadow': 'off',
     'react-native/no-unused-styles': 'error',
     'react-native/no-color-literals': 'error',
@@ -69,7 +70,11 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['src/redux/slices/*.ts'],
+      files: ['**/__tests__/**/*.[jt]s?(x)', '**/?(*.)+(spec|test).[jt]s?(x)'],
+      extends: ['plugin:testing-library/react'],
+      env: {
+        jest: true,
+      },
       rules: {
         '@typescript-eslint/no-empty-function': 'off',
       },

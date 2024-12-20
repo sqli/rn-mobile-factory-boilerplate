@@ -1,4 +1,8 @@
 {
+  "ts-node": {
+    "transpileOnly": true,
+    "files": true
+  },
   "compilerOptions": {
     "target": "esnext",
     "lib": ["es2021"],
@@ -7,10 +11,10 @@
     "noEmit": true,
     "isolatedModules": true,
     "strict": true,
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "moduleResolution": "node",
     "baseUrl": ".",
     "paths": {
       "@assets/*": ["./src/assets/*"],
@@ -26,6 +30,7 @@
       "@thunks/*": ["./src/redux/thunks/*"],
       "@selectors/*": ["./src/redux/selectors/*"],
       "@middlewares/*": ["./src/redux/middlewares/*"],
+      "@mocks/*": ["./src/mocks/*"],
       "@screens/*": ["./src/screens/*"],
       "@services/*": ["./src/services/*"],
       "@slices/*": ["src/redux/slices/*"],
@@ -34,5 +39,5 @@
     }
   },
   "extends": "@tsconfig/react-native/tsconfig.json",
-  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
+  "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.ts"]
 }
