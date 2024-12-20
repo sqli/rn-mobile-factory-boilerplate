@@ -8,7 +8,7 @@ The template is preconfigured for **Firebase** and **CI/CD** with the combo **Gi
 ## Requirement
 
 You need to install and use 18 or newer version of Node.
-If you encounter an error related to Cocoapods you may need to upgrade your version of Ruby to `2.7.3`.  
+If you encounter an error related to Cocoapods you may need to upgrade your version of Ruby to `3.2.5`.  
 If it's not enough you may run `npx pod-install`.
 
 ## Packages (last update 08-2024)
@@ -28,6 +28,8 @@ Run this command in your favorite terminal :
 
 You can run your app like this :
 
+- `rbenv install 3.2.5`
+- `bundle install`
 - `nvm install` to install the correct node version
 - `nvm use` to use the correct node version
 - `yarn` to install the packages

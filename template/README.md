@@ -1,6 +1,6 @@
 # SQLI React-Native boilerplate
 
-Versions of Node (`22.6.0`), Java (`Java 17`) and Ruby (`2.7.3`) are managed with `.nvmrc`, `.jabbarc` and `.ruby-version` files so everyone could use this starter kit.
+Versions of Node (`22.6.0`), Java (`Java 17`) and Ruby (`3.2.5`) are managed with `.nvmrc`, `.jabbarc` and `.ruby-version` files so everyone could use this starter kit.
 
 ## Basic configuration
 
