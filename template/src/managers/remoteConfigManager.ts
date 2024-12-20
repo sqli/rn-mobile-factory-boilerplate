@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import remoteConfig from '@react-native-firebase/remote-config';
 
 export const remoteConfigMinVersion = 'min_version';

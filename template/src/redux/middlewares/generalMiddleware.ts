@@ -1,8 +1,7 @@
-import BootSplash from 'react-native-bootsplash';
-
 import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
 import { AppMiddleware } from '@redux/store';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
+import BootSplash from 'react-native-bootsplash';
 import Config from 'react-native-config';
 
 export const generalMiddleware: AppMiddleware = store => next => action => {
