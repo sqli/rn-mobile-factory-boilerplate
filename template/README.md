@@ -35,6 +35,7 @@ Now that you have create your Firebase project and added the configuration files
 - In `remoteConfigManager.ts` uncomment the `getAllRemoteConfigValues` function
 - In `generalMiddleware.ts` uncomment `// firebaseInit();` `// dispatch(fetchRemoteConfigValues());`
 - In `firebaseInit.ts` uncomment `setNotificationsEnabled` function
+- in `jest.setup.ts`uncomment all the jest mocks
 - In .env files, replace `FIREBASE_APP_ID_IOS = "1:xxxxxxxxxxxx:ios:xxxxxxxxxxxxxxxxxxxxx"` and `FIREBASE_APP_ID_ANDROID = "1:xxxxxxxxxxxx:android:xxxxxxxxxxxxxxxxxxxxx"`
 
 > Firebase is now initialized with analytics, crashlytics, firestore, messaging, performance and remote-config.

@@ -1,9 +1,10 @@
+import axios from 'axios';
+import Config from 'react-native-config';
+
 import webServicesConstants from '@constants/webServicesConstants';
 import { WebServiceStatusEnum } from '@enums/WebServiceStatusEnum';
 import { logOut } from '@redux/slices/authentSlice';
 import store from '@redux/store';
-import axios from 'axios';
-import Config from 'react-native-config';
 
 export const getDefaultHeaders = () => ({
   Authorization: `Bearer ${wsSettings.token}`,

@@ -1,7 +1,7 @@
 module.exports = {
-  presets: ['module:@react-native/babel-preset'],
+  presets: ['module:@react-native/babel-preset', '@babel/preset-typescript'],
   plugins: [
-    //if you already have other plugin just paste this lines below
+    // if you already have other plugin just paste this lines below
     [
       'module-resolver',
       {
@@ -20,6 +20,7 @@ module.exports = {
           '@redux': './src/redux',
           '@thunks': './src/redux/thunks',
           '@middlewares': './src/redux/middlewares',
+          '@mocks': './src/mocks',
           '@slices': './src/redux/slices',
           '@selectors': './src/redux/selectors',
           '@screens': './src/screens',
