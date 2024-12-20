@@ -1,4 +1,4 @@
-# SQLI Mobile Factory React Native Boilerplate
+# SQLI Mobile Factory React Native boilerplate
 
 Welcome to the [SQLI](https://github.com/sqli) starter kit for [React Native](https://reactnative.dev/) apps.  
 This custom one is built upon the **0.76 version of RN** with **typescript**.
@@ -32,8 +32,8 @@ You can run your app like this :
 - `nvm use` to use the correct node version
 - `yarn` to install the packages
 - `yarn start` to start the metro bundler
-- `yarn pods` & `yarn ios` to run on iOS
-- `jabba use` & `yarn android` to run on Android
+- `yarn pods` & `yarn ios:dev:debug` to run on iOS
+- `jabba use` & `yarn android:dev:debug` to run on Android
 
 ## About us
 
