@@ -1,0 +1,6 @@
+appId: com.sqli.boilerplate.dev
+---
+- launchApp
+
+- assertVisible:
+    id: details-button

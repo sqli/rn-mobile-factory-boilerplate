@@ -22,12 +22,12 @@ def launch_tests():
 
     def run_android_tests():
         print("Lancement des tests sur Android...")
-        result = subprocess.run(['maestro', 'test', '--env', 'platform=android', 'maestro/tests/navigate-details-screen.yaml'])
+        result = subprocess.run(['maestro', 'test', '--env', 'platform=android', 'maestro/'])
         return result.returncode == 0
 
     def run_ios_tests():
         print("Lancement des tests sur iOS...")
-        result = subprocess.run(['maestro', 'test', '--env', 'platform=ios', 'maestro/tests/navigate-details-screen.yaml'])
+        result = subprocess.run(['maestro', 'test', '--env', 'platform=ios', 'maestro/'])
         return result.returncode == 0
 
     # Vérifier l'état initial des simulateurs
