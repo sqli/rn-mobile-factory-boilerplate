@@ -49,3 +49,7 @@ If you want to use it for your project you have to :
 - Add the secret variables in your gilab repo
 - Update the file `.gitlab-ci.yml` and `Fastile` to fit your requirements.
 - If you are using App Center, create your apps (iOS & Android).
+
+## Tests with Maestro
+
+[Tests with Maestro](maestro/README.md)
