@@ -3839,23 +3839,23 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@reduxjs/toolkit@npm:^2.2.7":
-  version: 2.2.7
-  resolution: "@reduxjs/toolkit@npm:2.2.7"
+"@reduxjs/toolkit@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@reduxjs/toolkit@npm:2.5.0"
   dependencies:
     immer: "npm:^10.0.3"
     redux: "npm:^5.0.1"
     redux-thunk: "npm:^3.1.0"
     reselect: "npm:^5.1.0"
   peerDependencies:
-    react: ^16.9.0 || ^17.0.0 || ^18
+    react: ^16.9.0 || ^17.0.0 || ^18 || ^19
     react-redux: ^7.2.1 || ^8.1.3 || ^9.0.0
   peerDependenciesMeta:
     react:
       optional: true
     react-redux:
       optional: true
-  checksum: 10c0/7761a91adac2b5e1d50a8163ba5441480bb86a3a80b7583037c27a88463394b132dd7592862fc2be03aa7ab98a6e1710549889986dc0d3f033c169a3ba2cb02e
+  checksum: 10c0/81748a5a6d2f52a14769b6ed25aea1e77cda81b1db6599c7c3a1d1605696c65c4469f55146c2b2a7a2f8ebafa5ecd4996aa8deecb37aebb5307217ec2fe384ac
   languageName: node
   linkType: hard
 
@@ -3931,7 +3931,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/react-native@npm:^12.8.1":
+"@testing-library/react-native@npm:^12.9.0":
   version: 12.9.0
   resolution: "@testing-library/react-native@npm:12.9.0"
   dependencies:
@@ -5015,14 +5015,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axios@npm:^1.7.5":
-  version: 1.7.7
-  resolution: "axios@npm:1.7.7"
+"axios@npm:^1.7.9":
+  version: 1.7.9
+  resolution: "axios@npm:1.7.9"
   dependencies:
     follow-redirects: "npm:^1.15.6"
     form-data: "npm:^4.0.0"
     proxy-from-env: "npm:^1.1.0"
-  checksum: 10c0/4499efc89e86b0b49ffddc018798de05fab26e3bf57913818266be73279a6418c3ce8f9e934c7d2d707ab8c095e837fc6c90608fb7715b94d357720b5f568af7
+  checksum: 10c0/b7a41e24b59fee5f0f26c1fc844b45b17442832eb3a0fb42dd4f1430eb4abc571fe168e67913e8a1d91c993232bd1d1ab03e20e4d1fee8c6147649b576fc1b0b
   languageName: node
   linkType: hard
 
@@ -5303,9 +5303,9 @@ __metadata:
     "@react-native/typescript-config": "npm:0.76.3"
     "@react-navigation/native": "npm:^6.1.18"
     "@react-navigation/native-stack": "npm:^6.11.0"
-    "@reduxjs/toolkit": "npm:^2.2.7"
+    "@reduxjs/toolkit": "npm:^2.5.0"
     "@testing-library/jest-native": "npm:^5.4.3"
-    "@testing-library/react-native": "npm:^12.8.1"
+    "@testing-library/react-native": "npm:^12.9.0"
     "@tsconfig/react-native": "npm:^3.0.5"
     "@types/jest": "npm:^26.0.23"
     "@types/react": "npm:^18.2.6"
@@ -5314,7 +5314,7 @@ __metadata:
     "@types/redux-mock-store": "npm:^1"
     "@typescript-eslint/eslint-plugin": "npm:^5.52.0"
     "@typescript-eslint/parser": "npm:^5.52.0"
-    axios: "npm:^1.7.5"
+    axios: "npm:^1.7.9"
     babel: "npm:^6.23.0"
     babel-jest: "npm:^29.6.3"
     babel-plugin-module-resolver: "npm:4.1.0"
@@ -5327,8 +5327,8 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-react: "npm:^7.37.2"
     eslint-plugin-testing-library: "npm:^7.0.0"
-    globals: "npm:^15.13.0"
-    husky: "npm:^9.1.5"
+    globals: "npm:^15.14.0"
+    husky: "npm:^9.1.7"
     i18next: "npm:^23.14.0"
     jest: "npm:^29.6.3"
     jest-extended: "npm:^4.0.2"
@@ -7824,10 +7824,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"globals@npm:^15.13.0":
-  version: 15.13.0
-  resolution: "globals@npm:15.13.0"
-  checksum: 10c0/640365115ca5f81d91e6a7667f4935021705e61a1a5a76a6ec5c3a5cdf6e53f165af7f9db59b7deb65cf2e1f83d03ac8d6660d0b14c569c831a9b6483eeef585
+"globals@npm:^15.14.0":
+  version: 15.14.0
+  resolution: "globals@npm:15.14.0"
+  checksum: 10c0/039deb8648bd373b7940c15df9f96ab7508fe92b31bbd39cbd1c1a740bd26db12457aa3e5d211553b234f30e9b1db2fee3683012f543a01a6942c9062857facb
   languageName: node
   linkType: hard
 
@@ -8087,12 +8087,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^9.1.5":
-  version: 9.1.5
-  resolution: "husky@npm:9.1.5"
+"husky@npm:^9.1.7":
+  version: 9.1.7
+  resolution: "husky@npm:9.1.7"
   bin:
     husky: bin.js
-  checksum: 10c0/f42efb95a026303eb880898760f802d88409780dd72f17781d2dfc302177d4f80b641cf1f1694f53f6d97c536c7397684133d8c8fe4a4426f7460186a7d1c6b8
+  checksum: 10c0/35bb110a71086c48906aa7cd3ed4913fb913823715359d65e32e0b964cb1e255593b0ae8014a5005c66a68e6fa66c38dcfa8056dbbdfb8b0187c0ffe7ee3a58f
   languageName: node
   linkType: hard
 
