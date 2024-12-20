@@ -486,7 +486,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KX79BU5A78;
-				DISPLAY_NAME = Boilerplate;
+				DISPLAY_NAME = boilerplate;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = boilerplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -518,7 +518,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KX79BU5A78;
-				DISPLAY_NAME = Boilerplate;
+				DISPLAY_NAME = boilerplate;
 				INFOPLIST_FILE = boilerplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -631,7 +631,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KX79BU5A78;
-				DISPLAY_NAME = "Dev Boilerplate";
+				DISPLAY_NAME = "Dev boilerplate";
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = boilerplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -768,7 +768,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = KX79BU5A78;
-				DISPLAY_NAME = "Dev Boilerplate";
+				DISPLAY_NAME = "Dev boilerplate";
 				INFOPLIST_FILE = boilerplate/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

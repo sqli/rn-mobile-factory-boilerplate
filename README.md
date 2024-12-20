@@ -1,4 +1,4 @@
-# SQLI Mobile Factory React Native Boilerplate
+# SQLI Mobile Factory React Native boilerplate
 
 Welcome to the [SQLI](https://github.com/sqli) starter kit for [React Native](https://reactnative.dev/) apps.  
 This custom one is built upon the **0.76 version of RN** with **typescript**.
