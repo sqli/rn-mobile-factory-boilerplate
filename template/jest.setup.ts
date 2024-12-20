@@ -5,7 +5,7 @@ import * as matchers from 'jest-extended';
 
 expect.extend(matchers);
 
-jest.mock('@react-native-firebase/analytics', () => () => ({
+/* jest.mock('@react-native-firebase/analytics', () => () => ({
   logEvent: jest.fn(),
   setAnalyticsCollectionEnabled: jest.fn().mockResolvedValue(null),
 }));
@@ -19,6 +19,10 @@ jest.mock('@react-native-firebase/crashlytics', () => () => ({
 jest.mock('@react-native-firebase/perf', () => () => ({
   setPerformanceCollectionEnabled: jest.fn().mockResolvedValue(null), // Return a resolved promise
 }));
+
+ jest.mock('@managers/firebaseManager', () => ({
+  firebaseInit: jest.fn(),
+}))*/
 
 jest.mock('react-native-permissions', () => ({
   check: jest.fn(),
@@ -59,10 +63,6 @@ jest.mock('i18next', () => ({
     return str;
   },
   changeLanguage: jest.fn(),
-}));
-
-jest.mock('@managers/firebaseManager', () => ({
-  firebaseInit: jest.fn(),
 }));
 
 NativeModules.SourceCode = { scriptURL: 'http://localhost:8081' };
