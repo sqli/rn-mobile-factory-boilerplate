@@ -23,7 +23,10 @@
     "prettier": "prettier --check \"./**/*.{js,jsx,ts,tsx,json}\"",
     "prettier:format": "prettier --write \"./**/*.{js,jsx,ts,tsx,json}\"",
     "tsc": "npx tsc --skipLibCheck",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "maestro": "python3 maestro/scripts/launcher.py",
+    "maestro:ios": "maestro test --env platform=ios maestro/",
+    "maestro:android": "maestro test --env platform=android maestro/"
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^2.1.0",

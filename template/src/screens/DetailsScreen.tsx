@@ -3,7 +3,7 @@ import React from 'react';
 import { Image, StyleSheet, View } from 'react-native';
 
 const DetailsScreen = () => (
-  <View style={styles.container}>
+  <View testID="details-screen" style={styles.container}>
     <Image
       style={styles.image}
       source={{

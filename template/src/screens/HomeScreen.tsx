@@ -16,7 +16,11 @@ const HomeScreen = () => (
       }}
     />
     <Text>{'Environnement: ' + Config.ENV}</Text>
-    <Button title={t('home.detailsButton')} onPress={() => navigate(NavigationEnum.DETAILS)} />
+    <Button
+      testID="details-button"
+      title={t('home.detailsButton')}
+      onPress={() => navigate(NavigationEnum.DETAILS)}
+    />
   </View>
 );
 

@@ -1,0 +1,8 @@
+appId: com.sqli.boilerplate.dev
+---
+
+- tapOn:
+    id: details-button
+
+- assertVisible:
+    id: details-screen
