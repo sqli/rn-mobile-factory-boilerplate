@@ -86,6 +86,8 @@ jest:
 
 .buildiOS: &buildiOS
   stage: 👷build
+  variables:
+    SECURE_FILES_DOWNLOAD_PATH: './certificates'
   before_script:
     - nvm install
     - nvm use
