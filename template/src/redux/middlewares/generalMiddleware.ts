@@ -1,3 +1,5 @@
+import BootSplash from 'react-native-bootsplash';
+
 import { fetchRemoteConfigValues, initApp } from '@redux/slices/generalSlice';
 import { AppMiddleware } from '@redux/store';
 import { checkRemoteConfigVersion } from '@services/firebaseInit';
@@ -13,6 +15,7 @@ export const generalMiddleware: AppMiddleware = store => next => action => {
       console.log(`initApp for environnement ${Config.ENV} and base url ${Config.BASE_URL}`);
       // firebaseInit();
       // dispatch(fetchRemoteConfigValues());
+      BootSplash.hide({ fade: true });
       break;
     }
     case fetchRemoteConfigValues.fulfilled.match(action): {
