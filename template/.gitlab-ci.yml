@@ -151,10 +151,10 @@ jest:
   before_script:
     - cd ci/
     - bundle install
+    - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
   variables:
     SECURE_FILES_DOWNLOAD_PATH: './certificates'
   script:
-    - curl --silent "https://gitlab.com/gitlab-org/incubation-engineering/mobile-devops/download-secure-files/-/raw/main/installer" | bash
     - bundle exec fastlane ${BUILD_PLATFORM} deploy_to_store store:${DEPLOY_STORE} --env ${BUILD_ENV}
   tags:
     - React-Native
