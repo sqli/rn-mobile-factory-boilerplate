@@ -97,7 +97,7 @@ jest:
   script:
     - bundle exec fastlane ios build --env ${BUILD_ENV}
   tags:
-    - Xcode14
+    - Xcode15
   allow_failure: true
   artifacts:
     paths:
