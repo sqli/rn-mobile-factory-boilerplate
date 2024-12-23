@@ -218,7 +218,7 @@ jest:
     - if: $CI_COMMIT_BRANCH =~ /^release.*$/
     - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
   dependencies:
-    - 🛠build:android:drdevgon
+    - 🛠build:android:dev
   when: manual
 
 🚀deploy-client:ios:production:
