@@ -83,7 +83,7 @@ platform :ios do
             duration: 1200, # optional
             in_house: true, # optional but may be required if using match/sigh
         )
-    }
+    end
 
     desc "🚀 - Upload - 🚀"
     lane :deploy_to_store do |options|
@@ -111,7 +111,7 @@ platform :ios do
             service_credentials_file: ENV['SERVICE_ACCOUNT_FILE_PATH'],
             app: ENV['FIREBASE_APP_ID_IOS'],
             ipa_path: "#{ENV["IPA_OUTPUT_DIRECTORY"]}#{ENV["IPA_NAME"]}.ipa",
-            release_notes: last_git_commit[:message]
+            release_notes: last_git_commit[:message],
             groups: options[:destinations]
         )
         puts "✅ Firebase App Distribution result: #{result}"
