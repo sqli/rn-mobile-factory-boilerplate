@@ -97,7 +97,7 @@ jest:
   script:
     - bundle exec fastlane ios build --env ${BUILD_ENV}
   tags:
-    - Xcode14
+    - Xcode15
   allow_failure: true
   artifacts:
     paths:
@@ -218,7 +218,7 @@ jest:
     - if: $CI_COMMIT_BRANCH =~ /^release.*$/
     - if: $CI_COMMIT_BRANCH =~ /^hotfix.*$/
   dependencies:
-    - 🛠build:android:drdevgon
+    - 🛠build:android:dev
   when: manual
 
 🚀deploy-client:ios:production:
